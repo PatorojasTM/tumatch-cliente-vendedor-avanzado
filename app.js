@@ -24,7 +24,7 @@ const quizBank = {
   { q:"¿Cuál es la capa más importante del ACM?", opts:["Comparables en venta","Comparables vendidos (cierres 6–12 meses)","Comparables de otra comuna","Avalúo fiscal SII"], correct:1, why:"Los precios de cierre son la realidad del mercado; lo publicado es intención.", whyNot:["Son intención, no realidad.","","Distorsiona; debe ser misma zona.","Avalúo fiscal rara vez refleja mercado."] },
   { q:"Una propiedad publicada 90 días sin cerrar:", opts:["Solo le faltan fotos","Está 'quemada': portales la esconden y compradores la ignoran","Subirá de precio","Es ideal para inversión"], correct:1, why:"Tras 90 días el algoritmo y los compradores la penalizan.", whyNot:["Síntoma, no causa.","","Al revés.","No lo determina el tiempo en portal."] },
   { q:"El 'precio piso' es:", opts:["El más bajo del sector","El mínimo aceptable del vendedor, que NO se comparte con el comprador","El valor SII","El precio lista"], correct:1, why:"Es información interna del corredor y el cliente, nunca se revela al comprador.", whyNot:["Se refiere a ESTA propiedad, no al sector.","","No guarda relación directa.","Es el publicado, muy distinto."] },
-  { q:"Herramienta TuMatch para estimar precio:", opts:["/herramientas/rentabilidad","/herramientas/tasacion","/herramientas/calculadora-comision","/herramientas/promociones"], correct:1, why:"El módulo oficial de tasación entrega UF/m² actualizado por zona.", whyNot:["Es para cap rate, no tasación.","","Calcula honorarios, no precio.","Es catálogo de beneficios."] },
+  { q:"Herramienta TuMatch para estimar precio:", opts:["/herramientas/rentabilidad","/herramientas/estimacion-de-precio","/herramientas/calculadora-comision","/herramientas/promociones"], correct:1, why:"El módulo oficial Estimación de Precio entrega UF/m² actualizado por zona.", whyNot:["Es para cap rate, no estimación de precio.","","Calcula honorarios, no precio.","Es catálogo de beneficios."] },
   { q:"Piso 1 vs piso 12 orientación norte, mismo edificio:", opts:["Valen igual","El 12 vale típicamente +13–18% más (1,5%/piso aprox.)","El 1 vale más","Depende del color"], correct:1, why:"Cada piso sobre el 3° suma ~1,5%; tope técnico ~pisos 12–15.", whyNot:["No; el piso y la altura impactan.","","Contradice la regla.","Anecdótico."] },
   { q:"Un cliente exige publicar 15% sobre ACM. ¿Qué haces?", opts:["Lo rechazas","Aceptas con plazo: 30 días a su precio, luego ajuste al ACM firmado por escrito","Publicas y ves qué pasa","Lo aceptas sin condiciones"], correct:1, why:"Preserva la relación y pacta el ajuste desde el día 0.", whyNot:["Pierdes el mandato.","","Te sube los costos sin control.","Pierdes tiempo y dinero sin compromiso."] },
   { q:"La 3ª capa del ACM son:", opts:["Propiedades en venta","Comparables RETIRADOS (90+ días sin cerrar)","Rumor del dueño del edificio","Avalúo fiscal"], correct:1, why:"Los retirados marcan el techo real del precio aceptado.", whyNot:["Es la 2ª capa.","","Anecdótico, no técnico.","Ya vimos que no aplica."] },
@@ -43,7 +43,7 @@ const quizBank = {
   { q:"Amenities (piscina, quincho, gym):", opts:["No afectan","Suman +2–5% al edificio completo","Bajan el precio","Suman +30%"], correct:1, why:"Son factor secundario pero medible.", whyNot:["Sí aplican, moderadamente.","Contradice el mercado.","","Sobredimensionado."] },
 ],
 2: [
-  { q:"Motivación real del vendedor se descubre con:", opts:["Redes sociales","Pregunta abierta: '¿Qué vas a hacer con el dinero de la venta?'","Tasación","Una llamada ciega"], correct:1, why:"La respuesta revela urgencia, plazo y flexibilidad de precio.", whyNot:["Superficial.","","No da info emocional.","No saca info clave."] },
+  { q:"Motivación real del vendedor se descubre con:", opts:["Redes sociales","Pregunta abierta: '¿Qué vas a hacer con el dinero de la venta?'","Estimación de precio","Una llamada ciega"], correct:1, why:"La respuesta revela urgencia, plazo y flexibilidad de precio.", whyNot:["Superficial.","","No da info emocional.","No saca info clave."] },
   { q:"El sesgo de anclaje aplicado al vendedor:", opts:["Nunca lo afecta","Fija una cifra inicial y hace doler cada rebaja desde ahí","Solo afecta compradores","Es un mito"], correct:1, why:"Kahneman lo demostró: el número inicial se convierte en referencia emocional.", whyNot:["Es uno de los sesgos más robustos.","","Afecta a ambos lados.","Está ampliamente validado."] },
   { q:"Contra el ancla 'mi vecino vendió en X', la respuesta profesional es:", opts:["Discutir","Mostrar 6 comparables del edificio con fechas y precios de cierre actualizados","Decirle que está mal","Ignorarlo"], correct:1, why:"Evidencia neutra desancla mejor que opinión.", whyNot:["Genera resistencia.","","Confrontacional.","No responde la objeción."] },
   { q:"LAARC significa:", opts:["Listen · Argue · Attack · Refuse · Close","Listen · Acknowledge · Assess · Respond · Confirm","Lead · Ask · Advise · Rest · Close","Ninguna de las anteriores"], correct:1, why:"Marco clásico de objection handling basado en escucha activa.", whyNot:["Contradice la escucha empática.","","Omite reconocimiento.","Es LAARC real."] },
@@ -97,7 +97,7 @@ const quizBank = {
   { q:"Ley del Mono (20.898):", opts:["Prohíbe ampliaciones","Permite regularizar ampliaciones hasta ciertos m² y plazos","Solo arriendo","No existe"], correct:1, why:"Es el marco para regularizar construcciones sin permiso.", whyNot:["Al revés.","","No tiene que ver.","Sí existe."] },
   { q:"Certificado de dominio vigente debe:", opts:["Tener más de 1 año","Ser de los últimos 30 días al momento del cierre","No importa","Ser imaginario"], correct:1, why:"Banco y notario exigen frescura máxima 30 días.", whyNot:["Queda obsoleto.","","Sí importa.","No profesional."] },
   { q:"Si la propiedad tiene ampliación no regularizada y el comprador es con crédito:", opts:["Puede igual","La tasación bancaria ignora los m² no declarados y el crédito no alcanza","No importa","Se regulariza en un día"], correct:1, why:"Banco tasa sobre planos; lo no declarado no se considera.", whyNot:["No puede.","","Sí importa.","Irreal; toma 3–12 meses."] },
-  { q:"Plazo típico de gestión bancaria post-promesa:", opts:["1 día","30–60 días","6 meses","Años"], correct:1, why:"Evaluación, tasación, escritura y CBR toma ese rango.", whyNot:["Irreal.","","Demasiado.","Incluso peor."] },
+  { q:"Plazo típico de gestión bancaria post-promesa:", opts:["1 día","30–60 días","6 meses","Años"], correct:1, why:"Evaluación, tasación bancaria, escritura y CBR toma ese rango.", whyNot:["Irreal.","","Demasiado.","Incluso peor."] },
   { q:"DS1 Tramo 1 financia propiedades hasta:", opts:["UF 500","UF 1.400 (aprox. subsidio hasta 700 UF)","UF 5.000","UF 10.000"], correct:1, why:"Es el tramo de menor precio y mayor subsidio.", whyNot:["Muy bajo.","","Es DS49 o superior tramo.","Fuera de rango."] },
   { q:"Estudio de títulos típico revisa:", opts:["Nada","10 años atrás de transferencias en CBR","1 año","50 años"], correct:1, why:"Es la ventana estándar para acreditar tradición.", whyNot:["Es obligatorio.","","Insuficiente.","Excesivo."] },
   { q:"Antigüedad laboral mínima dependiente:", opts:["1 mes","12 meses","5 años","20 años"], correct:1, why:"Banco pide al menos 1 año continuo demostrable.", whyNot:["No califica.","","Excesivo.","No realista."] },
@@ -121,7 +121,7 @@ const quizBank = {
   { q:"Para un primera vivienda familia, lo más importante del sector es:", opts:["Cap rate","Colegios + seguridad + accesibilidad + áreas verdes","IVA","Arriendo futuro"], correct:1, why:"Compra para habitar, no para rentar.", whyNot:["No entiende.","","No aplica a su decisión.","No aplica."] },
   { q:"Metro a &lt; 8 min caminando sube el precio:", opts:["0%","8–15%","50%","–10%"], correct:1, why:"Benchmark de plusvalía urbana chilena.", whyNot:["Ignora evidencia.","","Sobredimensionado.","Al revés."] },
   { q:"Vacancia típica a considerar en cap rate neto:", opts:["0%","8% (aprox.)","50%","Varía pero se omite"], correct:1, why:"Un mes al año sin arriendo es el supuesto prudente estándar.", whyNot:["Irreal.","","Irreal.","Omitirla infla el cap."] },
-  { q:"Herramienta CRM para cap rate:", opts:["/herramientas/tasacion","/herramientas/rentabilidad","/herramientas/calculadora-comision","Ninguna"], correct:1, why:"Es la herramienta específica de yield y payback.", whyNot:["Es para precio.","","Calcula honorarios.","Sí existe."] },
+  { q:"Herramienta CRM para cap rate:", opts:["/herramientas/estimacion-de-precio","/herramientas/rentabilidad","/herramientas/calculadora-comision","Ninguna"], correct:1, why:"Es la herramienta específica de yield y payback.", whyNot:["Es para estimación de precio.","","Calcula honorarios.","Sí existe."] },
   { q:"Plusvalía histórica del sector se mide con:", opts:["Opinión","Variación UF/m² de los últimos 5 años en la zona","Sentimiento","El clima"], correct:1, why:"Es la serie técnica defendible.", whyNot:["No profesional.","","Sin valor.","Sin relación."] },
   { q:"Altura máxima PRC 21 m significa aprox:", opts:["21 pisos","7 pisos aprox (3 m por piso)","3 pisos","42 pisos"], correct:1, why:"Regla habitual: altura / 3 = pisos.", whyNot:["Irreal.","","Subestima.","Irreal."] },
   { q:"El rasante vertical inclinado vs deslindes:", opts:["No existe","Limita la envolvente del edificio hacia los lindes","Aplica solo a casas","Solo en zona rural"], correct:1, why:"Es clave en zonas densas; marca la silueta permitida.", whyNot:["Es norma estándar PRC.","","Aplica a cualquier construcción.","Urbanismo total."] },
@@ -136,7 +136,7 @@ const quizBank = {
   { q:"HDR (High Dynamic Range) sirve para:", opts:["Video","Balancear ventanas quemadas e interiores oscuros","Ruido","Nada"], correct:1, why:"Combina bracketing para rescatar alto y bajo rango.", whyNot:["Es foto.","","Fuera de propósito.","Sirve y mucho."] },
   { q:"Altura de cámara recomendada:", opts:["30 cm","1,40–1,50 m (altura pecho)","2,2 m","Ojos"], correct:1, why:"Es la altura más natural para espacios residenciales.", whyNot:["Distorsiona.","","Excesivo.","Cambia la sensación espacial."] },
   { q:"Apertura recomendada:", opts:["f/1,4","f/8 – f/11","f/22 siempre","f/0,95"], correct:1, why:"Da profundidad de campo pareja sin perder nitidez por difracción.", whyNot:["Baja profundidad.","","Pierde nitidez por difracción.","No existe en el gear típico."] },
-  { q:"Gemini AI debe usarse para:", opts:["Sustituir al corredor","Generar copy SEO (título + descripción) con prompts estructurados","Firmar contratos","Hacer tasaciones"], correct:1, why:"Es una herramienta de texto y análisis; el corredor ejecuta y valida.", whyNot:["Jamás.","","No puede.","No es su fortaleza."] },
+  { q:"Gemini AI debe usarse para:", opts:["Sustituir al corredor","Generar copy SEO (título + descripción) con prompts estructurados","Firmar contratos","Hacer estimaciones de precio"], correct:1, why:"Es una herramienta de texto y análisis; el corredor ejecuta y valida con el CRM.", whyNot:["Jamás.","","No puede.","La estimación de precio es una herramienta del CRM TuMatch, no de Gemini."] },
   { q:"Buen prompt para Gemini incluye:", opts:["'Describe esto'","Rol + tarea + datos técnicos + formato + tono","Un emoji","Nada"], correct:1, why:"Especificar rol, tarea, datos, formato y tono produce output profesional.", whyNot:["Output genérico.","","Irrelevante.","Output basura."] },
   { q:"Título SEO efectivo:", opts:["'Depto lindo en venta'","Tipo + dormitorios + comuna + hito + diferencial (máx 70 char)","Emoji fiesta","LIQUIDACIÓN 🔥🔥🔥"], correct:1, why:"Estructura cubre palabras clave + gancho concreto.", whyNot:["Sin keywords ni gancho.","","No posiciona.","Ahuyenta profesionales."] },
   { q:"Primer párrafo SEO = meta-description. Debe tener:", opts:["Más de 300 caracteres","Aproximadamente 160 caracteres con comuna, m², dormitorios, hito y UF","Solo emojis","Una rima"], correct:1, why:"Google lo corta en ~160; las keywords tempranas posicionan.", whyNot:["Se corta.","","Imposible posicionar.","No es SEO."] },
@@ -159,7 +159,7 @@ const quizBank = {
   { q:"Team Leader sobre cada corredor de su equipo:", opts:["0%","7,5% sobre la comisión del lado","50%","100%"], correct:1, why:"Es el modelo de gobierno del TL.", whyNot:["No hay TL sin incentivo.","","Irreal.","Irreal."] },
   { q:"Exclusividad del mandato mínima recomendada:", opts:["30 días","90 días (extensible)","10 años","Sin plazo"], correct:1, why:"Tiempo suficiente para ejecutar plan completo de marketing.", whyNot:["Insuficiente para el plan completo.","","Irreal.","Pierde disciplina."] },
   { q:"Si el cliente pide bajar comisión de 2% a 1%:", opts:["Se la regalas","Negocias contraparte: exclusividad extra, dos propiedades, doble lado","Cortas llamada","Cobras 3%"], correct:1, why:"Nunca regales margen sin contraparte concreta.", whyNot:["Mata modelo.","","Pierdes cliente.","Injustificado."] },
-  { q:"Herramienta CRM para comisiones:", opts:["/herramientas/tasacion","/herramientas/calculadora-comision","/herramientas/rentabilidad","Ninguna"], correct:1, why:"Es la herramienta específica de cálculo de honorarios.", whyNot:["Es para precio.","","Es para yield.","Sí existe."] },
+  { q:"Herramienta CRM para comisiones:", opts:["/herramientas/estimacion-de-precio","/herramientas/calculadora-comision","/herramientas/rentabilidad","Ninguna"], correct:1, why:"Es la herramienta específica de cálculo de honorarios.", whyNot:["Es para estimación de precio.","","Es para yield.","Sí existe."] },
   { q:"Mandato sin exclusividad típicamente resulta en:", opts:["Mejor precio","Sobreexposición, caos de precios y propiedad quemada en 60 días","Más rápido","Igual"], correct:1, why:"Demasiados actores = confusión para el comprador y dilución de esfuerzo.", whyNot:["Al revés.","","Contradictorio.","Muy distinto."] },
   { q:"Gestor con TL en lado vendedor puede llegar a:", opts:["100%","Hasta 60% del lado (30% captador + 30% gestión)","200%","No aplica"], correct:1, why:"Tope TuMatch con TL es 60%.", whyNot:["Irreal.","","Irreal.","Aplica perfectamente."] },
   { q:"Oferta del comprador en el flujo de cierre:", opts:["Por WhatsApp","Por escrito, con vigencia, monto, forma de pago","Verbal","Con emoticon"], correct:1, why:"Documento formal evita ambigüedad.", whyNot:["Riesgo legal.","","Sin prueba.","Absurdo."] },
@@ -187,14 +187,14 @@ const finalBank = [
   { q:"Foto profesional vs celular — visualizaciones:", opts:["Igual","15× más","–20%","No importa"], correct:1, why:"Benchmark de marketing inmobiliario.", whyNot:["Ignora evidencia.","","Al revés.","Sí importa."] },
   { q:"Ratio dividendo / renta líquida máximo:", opts:["25%","50%","80%","10%"], correct:0, why:"Regla CMF.", whyNot:["","Te rechaza el banco.","Impago.","Subestimado."] },
   { q:"Constructibilidad alta vende mejor a:", opts:["Primera vivienda","Desarrollador inmobiliario","Inversionista renta","DS1"], correct:1, why:"Paga por m² futuro.", whyNot:["Desperdicia valor.","","No usa ese valor.","No aplica."] },
-  { q:"Herramienta CRM para tasación:", opts:["/herramientas/rentabilidad","/herramientas/tasacion","/herramientas/calculadora-comision","/herramientas/promociones"], correct:1, why:"Específica de precio.", whyNot:["Yield.","","Comisión.","Beneficios."] },
+  { q:"Herramienta CRM para estimación de precio:", opts:["/herramientas/rentabilidad","/herramientas/estimacion-de-precio","/herramientas/calculadora-comision","/herramientas/promociones"], correct:1, why:"Específica de precio.", whyNot:["Yield.","","Comisión.","Beneficios."] },
   { q:"LAARC significa:", opts:["Listen·Acknowledge·Assess·Respond·Confirm","Lead·Ask·Advise·Rest·Close","Listen·Argue·Attack·Refuse·Close","Nada"], correct:0, why:"Framework de objection handling.", whyNot:["","Inventado.","Destructivo.","Es real."] },
   { q:"Exclusividad mínima recomendada:", opts:["30 días","90 días","1 año","Sin plazo"], correct:1, why:"Tiempo para ejecutar plan.", whyNot:["Insuficiente.","","Excesivo.","Pierde disciplina."] },
   { q:"Subsidio sin deuda:", opts:["DS1","DS49","DFL2","FOGAPE"], correct:1, why:"Para primer quintil, sin crédito.", whyNot:["Con crédito.","","Es tributario, no subsidio.","No es subsidio habitacional."] },
   { q:"Gran angular ideal para fotografía inmobiliaria:", opts:["70–200 mm","16–35 mm","Ojo de pez","85 mm fijo"], correct:1, why:"Capta amplitud sin distorsión.", whyNot:["Tele, no angular.","","Deforma.","Retrato, no espacios."] },
   { q:"Primer para Gemini debe incluir:", opts:["'Describe'","Rol + tarea + datos + formato + tono","Un emoji","Nada"], correct:1, why:"Estructura genera output profesional.", whyNot:["Genérico.","","Irrelevante.","Basura."] },
   { q:"DFL2 da al comprador:", opts:["Más crédito","50% menos contribuciones 10–20 años + rentas sin impuesto hasta 2 propiedades","Subsidio","Plazo mayor"], correct:1, why:"Paquete tributario.", whyNot:["No es eso.","","No es subsidio.","No relacionado."] },
-  { q:"Motivación real se descubre con:", opts:["Pregunta cerrada","'¿Qué vas a hacer con el dinero?'","Tasación","Nada"], correct:1, why:"Abre urgencia, plazo y flexibilidad.", whyNot:["Superficial.","","No revela emoción.","Sin info."] },
+  { q:"Motivación real se descubre con:", opts:["Pregunta cerrada","'¿Qué vas a hacer con el dinero?'","Estimación de precio","Nada"], correct:1, why:"Abre urgencia, plazo y flexibilidad.", whyNot:["Superficial.","","No revela emoción.","Sin info."] },
   { q:"Silencio estratégico tras plantear precio:", opts:["1 seg","7 seg","1 min","Indefinido"], correct:1, why:"El primero que habla cede.", whyNot:["Muy corto.","","Incómodo.","No aplica."] },
   { q:"A un inversionista le vendes con:", opts:["Colegios","Cap rate + caja neta + vacancia","IVA","Nada"], correct:1, why:"Habla su idioma.", whyNot:["Irrelevante.","","Es un plus, no el driver.","No aplica."] },
   { q:"Leasing habitacional cuota vs crédito:", opts:["Igual","15–25% más alta","Menor","Sin cuota"], correct:1, why:"Spread por riesgo.", whyNot:["Al revés.","","Al revés.","Obvio que tiene."] },
@@ -215,7 +215,7 @@ const finalBank = [
   { q:"Refresh del aviso en portales:", opts:["Nunca","Cada 14 días (editar foto/bullet)","Cada hora","Solo inicio"], correct:1, why:"Portales premian frescura.", whyNot:["Pierdes visibilidad.","","Spam.","Decae rápido."] },
   { q:"Estudio de títulos lo hace:", opts:["Corredor","Abogado en CBR 10 años atrás","Vendedor","Nadie"], correct:1, why:"Profesional jurídico.", whyNot:["Fuera de rol.","","Imposible.","Riesgo enorme."] },
   { q:"Ancla '300M porque mi vecino vendió en 300':", opts:["Discutir","Mostrar 10 comparables con fechas y cierres actualizados","Gritar","Aceptar"], correct:1, why:"Evidencia desancla, opinión no.", whyNot:["Escala resistencia.","","Destruye relación.","Pierdes margen."] },
-  { q:"Herramienta de comisión:", opts:["/rentabilidad","/calculadora-comision","/tasacion","Ninguna"], correct:1, why:"Específica de honorarios.", whyNot:["Yield.","","Precio.","Existe."] },
+  { q:"Herramienta de comisión:", opts:["/rentabilidad","/calculadora-comision","/estimacion-de-precio","Ninguna"], correct:1, why:"Específica de honorarios.", whyNot:["Yield.","","Precio.","Existe."] },
   { q:"Golden hour es:", opts:["Mediodía","30 min post amanecer / pre atardecer","Medianoche","Cualquier hora"], correct:1, why:"Luz cálida + sombras largas.", whyNot:["Luz plana.","","Sin luz.","Falta técnica."] },
   { q:"Post-venta debe incluir:", opts:["Nada","Agradecimiento + testimonio + referidos + touch trimestral","Ghosting","Llamar al año"], correct:1, why:"Genera 2–4 referidos/año.", whyNot:["Desperdicio.","","Destructivo.","Tarde."] },
   { q:"Subsidio DS1 Tramo 3 propiedades hasta:", opts:["UF 1.400","UF 3.000","UF 10.000","UF 500"], correct:1, why:"Tramo más alto con subsidio de 300 UF.", whyNot:["Es Tramo 1.","","Fuera de rango.","Muy bajo."] },
@@ -236,7 +236,7 @@ const App = (() => {
 
   const MODULE_NAMES = [
     'Inicio',
-    'Estimación de Precio · ACM y CRM Tasación',
+    'Estimación de Precio · ACM y CRM',
     'Psicología del Vendedor · Urgencia y Objeciones',
     'Perfiles de Comprador según la Propiedad',
     'Financiamiento · Crédito, Leasing, Subsidio, Regularización',
@@ -257,8 +257,58 @@ const App = (() => {
     finalWrongCount: 0,
   };
 
+  /* html2canvas lazy-loaded on first certificate download */
+  let _html2canvasPromise = null;
+  function ensureHtml2Canvas() {
+    if (typeof window.html2canvas === 'function') return Promise.resolve(window.html2canvas);
+    if (_html2canvasPromise) return _html2canvasPromise;
+    _html2canvasPromise = new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+      s.crossOrigin = 'anonymous';
+      s.onload = () => resolve(window.html2canvas);
+      s.onerror = () => { _html2canvasPromise = null; reject(new Error('No se pudo cargar la librería de descarga.')); };
+      document.head.appendChild(s);
+    });
+    return _html2canvasPromise;
+  }
+
+  function escapeHTML(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
   function load() {
-    try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) Object.assign(state, JSON.parse(raw)); } catch(e) {}
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return;
+      const clean = {
+        current: Number.isInteger(parsed.current) && parsed.current >= 0 && parsed.current <= 9 ? parsed.current : 0,
+        unlocked: Number.isInteger(parsed.unlocked) && parsed.unlocked >= 1 && parsed.unlocked <= TOTAL_MODULES + 2 ? parsed.unlocked : 1,
+        completedModules: Array.isArray(parsed.completedModules)
+          ? [...new Set(parsed.completedModules.filter(n => Number.isInteger(n) && n >= 1 && n <= TOTAL_MODULES))]
+          : [],
+        finalPassed: typeof parsed.finalPassed === 'boolean' ? parsed.finalPassed : false,
+        locks: (parsed.locks && typeof parsed.locks === 'object') ? parsed.locks : {},
+        wrongCount: (parsed.wrongCount && typeof parsed.wrongCount === 'object') ? parsed.wrongCount : {},
+        finalLockUntil: Number.isFinite(parsed.finalLockUntil) ? parsed.finalLockUntil : 0,
+        finalWrongCount: Number.isFinite(parsed.finalWrongCount) ? parsed.finalWrongCount : 0,
+      };
+      // Tamper mitigation: cap locks to current time + LOCK_MINUTES max
+      const now = Date.now();
+      const maxLock = now + LOCK_MINUTES * 60 * 1000;
+      Object.keys(clean.locks).forEach(k => {
+        const v = Number(clean.locks[k]);
+        if (!Number.isFinite(v) || v > maxLock) clean.locks[k] = 0;
+      });
+      if (clean.finalLockUntil > maxLock) clean.finalLockUntil = 0;
+      Object.assign(state, clean);
+    } catch(e) {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(_) {}
+    }
   }
   function save() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
@@ -281,7 +331,16 @@ const App = (() => {
   function show(moduleId) {
     document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
     const el = document.getElementById(moduleId);
-    if (el) { el.classList.add('active'); window.scrollTo({top:0, behavior:'smooth'}); }
+    if (!el) return;
+    el.classList.add('active');
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0, behavior: reduceMotion ? 'auto' : 'smooth'});
+    // Focus management: move focus to the first heading of the active module
+    const heading = el.querySelector('h1, h2');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      requestAnimationFrame(() => heading.focus({preventScroll: true}));
+    }
   }
 
   function goToModule(n) {
@@ -426,52 +485,70 @@ const App = (() => {
       return '<div class="' + c + '"></div>';
     }).join('');
     const opts = q.opts.map((opt, i) => (
-      '<button class="quiz-opt" onclick="App.answerQuestion(' + moduleN + ', ' + i + ')" data-i="' + i + '">' +
-        '<span class="opt-letter">' + String.fromCharCode(65+i) + '</span><span>' + opt + '</span>' +
+      '<button class="quiz-opt" role="radio" aria-checked="false" onclick="App.answerQuestion(' + moduleN + ', ' + i + ')" onkeydown="App.optKeydown(event,' + moduleN + ',' + i + ')" data-i="' + i + '" tabindex="' + (i === 0 ? '0' : '-1') + '">' +
+        '<span class="opt-letter" aria-hidden="true">' + String.fromCharCode(65+i) + '</span><span>' + escapeHTML(opt) + '</span>' +
       '</button>'
     )).join('');
 
     container.innerHTML =
       '<div class="quiz-gate-head">' +
-        '<div class="quiz-icon">🎯</div>' +
-        '<div><div class="quiz-title">Quiz · ' + mn + '</div>' +
+        '<div class="quiz-icon" aria-hidden="true">🎯</div>' +
+        '<div><div class="quiz-title">Quiz · ' + escapeHTML(mn) + '</div>' +
         '<div class="quiz-sublabel">5 preguntas · banco rotativo de 20 · desbloquea el siguiente módulo</div></div>' +
       '</div>' +
       '<div class="quiz-sub">Responde correctamente las 5. Si fallas, la pregunta rota. <strong>Tras ' + MAX_WRONGS + ' errores acumulados se bloquea 10 minutos.</strong></div>' +
       '<div class="quiz-progress-wrap">' +
-        '<div class="quiz-progress">' + dots + '</div>' +
+        '<div class="quiz-progress" aria-hidden="true">' + dots + '</div>' +
         '<div class="quiz-progress-label">' + qs.correct + '/' + QUESTIONS_PER_MODULE + ' correctas</div>' +
-        '<div class="quiz-life-label">Intentos · ' + lifeLeft + '/' + MAX_WRONGS + '</div>' +
+        '<div class="quiz-life-label" aria-live="polite">Intentos · ' + lifeLeft + '/' + MAX_WRONGS + '</div>' +
       '</div>' +
       '<div class="quiz-q">' +
         '<div class="quiz-q-label">Pregunta ' + (qs.index + 1) + ' de ' + QUESTIONS_PER_MODULE + '</div>' +
-        '<div class="quiz-q-text">' + q.q + '</div>' +
-        '<div class="quiz-opts">' + opts + '</div>' +
-        '<div class="quiz-feedback" id="feedback-' + moduleN + '"></div>' +
+        '<div class="quiz-q-text" id="qtext-' + moduleN + '">' + escapeHTML(q.q) + '</div>' +
+        '<div class="quiz-opts" role="radiogroup" aria-labelledby="qtext-' + moduleN + '">' + opts + '</div>' +
+        '<div class="quiz-feedback" id="feedback-' + moduleN + '" aria-live="polite" role="status"></div>' +
         '<div class="quiz-next" id="next-' + moduleN + '"></div>' +
       '</div>';
+  }
+
+  function optKeydown(e, moduleN, i) {
+    const container = document.getElementById('quiz-' + moduleN);
+    if (!container) return;
+    const btns = container.querySelectorAll('.quiz-opt:not(.disabled)');
+    if (!btns.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      const next = (i + 1) % btns.length;
+      btns.forEach((b, idx) => b.setAttribute('tabindex', idx === next ? '0' : '-1'));
+      btns[next].focus();
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prev = (i - 1 + btns.length) % btns.length;
+      btns.forEach((b, idx) => b.setAttribute('tabindex', idx === prev ? '0' : '-1'));
+      btns[prev].focus();
+    }
   }
 
   function buildWrongFeedbackHTML(q, optIdx) {
     const otherRows = q.opts.map((opt, i) => {
       if (i === q.correct) return '';
       const wn = (q.whyNot && q.whyNot[i]) ? q.whyNot[i] : '';
-      return '<div class="fb-otherwrong"><span class="fb-x">✗</span><strong>' + String.fromCharCode(65+i) + '.</strong> ' + opt + (wn ? ' <em>— ' + wn + '</em>' : '') + '</div>';
+      return '<div class="fb-otherwrong"><span class="fb-x" aria-hidden="true">✗</span><strong>' + String.fromCharCode(65+i) + '.</strong> ' + escapeHTML(opt) + (wn ? ' <em>— ' + escapeHTML(wn) + '</em>' : '') + '</div>';
     }).join('');
     return (
       '<div class="quiz-feedback-title">✗ Respuesta incorrecta</div>' +
-      '<div class="friendly-miss">' + randomMiss() + '</div>' +
+      '<div class="friendly-miss">' + escapeHTML(randomMiss()) + '</div>' +
       '<div class="quiz-feedback-body">' +
         '<div class="fb-block fb-block-wrong">' +
           '<div class="fb-label">Tu respuesta:</div>' +
-          '<div class="fb-text"><span class="fb-x">✗</span> ' + String.fromCharCode(65+optIdx) + '. ' + q.opts[optIdx] + '</div>' +
+          '<div class="fb-text"><span class="fb-x" aria-hidden="true">✗</span> ' + String.fromCharCode(65+optIdx) + '. ' + escapeHTML(q.opts[optIdx]) + '</div>' +
         '</div>' +
         '<div class="fb-block fb-block-right">' +
           '<div class="fb-label">Respuesta correcta:</div>' +
-          '<div class="fb-text"><span class="fb-check">✓</span> ' + String.fromCharCode(65+q.correct) + '. ' + q.opts[q.correct] + '</div>' +
+          '<div class="fb-text"><span class="fb-check" aria-hidden="true">✓</span> ' + String.fromCharCode(65+q.correct) + '. ' + escapeHTML(q.opts[q.correct]) + '</div>' +
         '</div>' +
         '<div class="fb-why-label">¿Por qué es la correcta?</div>' +
-        '<div class="fb-why">' + q.why + '</div>' +
+        '<div class="fb-why">' + escapeHTML(q.why) + '</div>' +
         (otherRows ? '<div class="fb-why-label">¿Por qué no las otras?</div><div class="fb-others">' + otherRows + '</div>' : '') +
       '</div>'
     );
@@ -487,6 +564,8 @@ const App = (() => {
     const btns = container.querySelectorAll('.quiz-opt');
     btns.forEach((b, i) => {
       b.classList.add('disabled');
+      b.setAttribute('aria-disabled', 'true');
+      if (i === optIdx) b.setAttribute('aria-checked', 'true');
       if (i === q.correct) b.classList.add('correct');
       if (i === optIdx && !isCorrect) b.classList.add('wrong');
     });
@@ -494,7 +573,7 @@ const App = (() => {
     if (isCorrect) {
       qs.correct++; updateProgress();
       fb.className = 'quiz-feedback correct show';
-      fb.innerHTML = '<div class="quiz-feedback-title">✓ Respuesta correcta</div><div class="quiz-feedback-body"><div class="fb-why-label">Por qué es la correcta:</div><div class="fb-why">' + q.why + '</div></div>';
+      fb.innerHTML = '<div class="quiz-feedback-title">✓ Respuesta correcta</div><div class="quiz-feedback-body"><div class="fb-why-label">Por qué es la correcta:</div><div class="fb-why">' + escapeHTML(q.why) + '</div></div>';
     } else {
       qs.wrongs++;
       state.wrongCount[moduleN] = (state.wrongCount[moduleN] || 0) + 1;
@@ -551,17 +630,17 @@ const App = (() => {
     const modName = MODULE_NAMES[moduleN];
     const fecha = new Date().toLocaleDateString('es-CL', {year:'numeric', month:'long', day:'numeric'});
     const savedName = localStorage.getItem('tumatch_cert_name_cv_adv') || '';
-    const nameHtml = savedName ? savedName : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre ↓</span>';
+    const nameHtml = savedName ? escapeHTML(savedName) : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre ↓</span>';
     const modNum = String(moduleN).padStart(2,'0');
     return (
       '<div class="quiz-done">' +
-        '<div class="quiz-done-icon">✓</div>' +
+        '<div class="quiz-done-icon" aria-hidden="true">✓</div>' +
         '<div class="quiz-done-title">¡Módulo ' + modNum + ' aprobado!</div>' +
         '<div class="quiz-done-desc">Te ganaste un certificado del Módulo ' + modNum + '. Descárgalo y continúa.</div>' +
 
         '<div class="mini-cert-name-form">' +
-          '<label>Tu nombre para este certificado</label>' +
-          '<input id="miniCertNameInput-' + moduleN + '" type="text" placeholder="Ej. María José Pérez González" value="' + savedName.replace(/"/g,'&quot;') + '" oninput="App.updateMiniCertName(' + moduleN + ', this.value)">' +
+          '<label for="miniCertNameInput-' + moduleN + '">Tu nombre para este certificado</label>' +
+          '<input id="miniCertNameInput-' + moduleN + '" type="text" autocomplete="name" placeholder="Ej. María José Pérez González" value="' + escapeHTML(savedName) + '" oninput="App.updateMiniCertName(' + moduleN + ', this.value)">' +
         '</div>' +
 
         '<div class="mini-cert" id="miniCert-' + moduleN + '">' +
@@ -606,18 +685,25 @@ const App = (() => {
   function updateMiniCertName(moduleN, v) {
     try { localStorage.setItem('tumatch_cert_name_cv_adv', v); } catch(e){}
     const el = document.getElementById('miniCertName-' + moduleN);
-    if (el) el.innerHTML = v && v.trim() ? v : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre ↓</span>';
+    if (!el) return;
+    if (v && v.trim()) {
+      el.textContent = v;
+    } else {
+      el.innerHTML = '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre ↓</span>';
+    }
   }
   function downloadMiniCert(moduleN) {
-    if (typeof html2canvas === 'undefined') { alert('La librería para descargar no está disponible.'); return; }
     const el = document.getElementById('miniCert-' + moduleN);
     if (!el) return;
-    html2canvas(el, {scale:2, backgroundColor:'#FAF8F4'}).then(canvas => {
-      const link = document.createElement('a');
-      link.download = 'Certificado_TuMatch_CV_Avanzado_Modulo_' + String(moduleN).padStart(2,'0') + '.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    });
+    ensureHtml2Canvas()
+      .then(h2c => h2c(el, {scale:2, backgroundColor:'#FAF8F4'}))
+      .then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Certificado_TuMatch_CV_Avanzado_Modulo_' + String(moduleN).padStart(2,'0') + '.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      })
+      .catch(err => alert(err.message || 'No se pudo generar el PNG. Revisa tu conexión.'));
   }
 
   /* ---------- PRUEBA FINAL ---------- */
@@ -679,21 +765,21 @@ const App = (() => {
       return '<div class="' + c + '"></div>';
     }).join('');
     const opts = q.opts.map((opt, i) => (
-      '<button class="quiz-opt" onclick="App.answerFinal(' + i + ')" data-i="' + i + '"><span class="opt-letter">' + String.fromCharCode(65+i) + '</span><span>' + opt + '</span></button>'
+      '<button class="quiz-opt" role="radio" aria-checked="false" onclick="App.answerFinal(' + i + ')" onkeydown="App.optKeydown(event,\'final\',' + i + ')" data-i="' + i + '" tabindex="' + (i === 0 ? '0' : '-1') + '"><span class="opt-letter" aria-hidden="true">' + String.fromCharCode(65+i) + '</span><span>' + escapeHTML(opt) + '</span></button>'
     )).join('');
     container.innerHTML =
-      '<div class="quiz-gate-head"><div class="quiz-icon">🏆</div><div><div class="quiz-title">Prueba Final · Cliente Vendedor Avanzado</div>' +
+      '<div class="quiz-gate-head"><div class="quiz-icon" aria-hidden="true">🏆</div><div><div class="quiz-title">Prueba Final · Cliente Vendedor Avanzado</div>' +
       '<div class="quiz-sublabel">14 preguntas · banco rotativo de 40 · 14/14 para certificarte</div></div></div>' +
       '<div class="quiz-sub">Responde correctamente las 14. Si fallas, la pregunta rota. <strong>Tras ' + MAX_WRONGS_FINAL + ' errores acumulados la prueba se bloquea 10 minutos.</strong></div>' +
       '<div class="quiz-progress-wrap">' +
-        '<div class="quiz-progress">' + dots + '</div>' +
+        '<div class="quiz-progress" aria-hidden="true">' + dots + '</div>' +
         '<div class="quiz-progress-label">' + qs.correct + '/' + FINAL_QUESTIONS + ' correctas</div>' +
-        '<div class="quiz-life-label">Intentos · ' + lifeLeft + '/' + MAX_WRONGS_FINAL + '</div>' +
+        '<div class="quiz-life-label" aria-live="polite">Intentos · ' + lifeLeft + '/' + MAX_WRONGS_FINAL + '</div>' +
       '</div>' +
       '<div class="quiz-q"><div class="quiz-q-label">Pregunta ' + (qs.index + 1) + ' de ' + FINAL_QUESTIONS + '</div>' +
-        '<div class="quiz-q-text">' + q.q + '</div>' +
-        '<div class="quiz-opts">' + opts + '</div>' +
-        '<div class="quiz-feedback" id="feedback-final"></div>' +
+        '<div class="quiz-q-text" id="qtext-final">' + escapeHTML(q.q) + '</div>' +
+        '<div class="quiz-opts" role="radiogroup" aria-labelledby="qtext-final">' + opts + '</div>' +
+        '<div class="quiz-feedback" id="feedback-final" aria-live="polite" role="status"></div>' +
         '<div class="quiz-next" id="next-final"></div>' +
       '</div>';
   }
@@ -708,6 +794,8 @@ const App = (() => {
     const btns = container.querySelectorAll('.quiz-opt');
     btns.forEach((b, i) => {
       b.classList.add('disabled');
+      b.setAttribute('aria-disabled', 'true');
+      if (i === optIdx) b.setAttribute('aria-checked', 'true');
       if (i === q.correct) b.classList.add('correct');
       if (i === optIdx && !isCorrect) b.classList.add('wrong');
     });
@@ -715,7 +803,7 @@ const App = (() => {
     if (isCorrect) {
       qs.correct++; updateProgress();
       fb.className = 'quiz-feedback correct show';
-      fb.innerHTML = '<div class="quiz-feedback-title">✓ Correcta</div><div class="quiz-feedback-body"><div class="fb-why-label">Por qué:</div><div class="fb-why">' + q.why + '</div></div>';
+      fb.innerHTML = '<div class="quiz-feedback-title">✓ Correcta</div><div class="quiz-feedback-body"><div class="fb-why-label">Por qué:</div><div class="fb-why">' + escapeHTML(q.why) + '</div></div>';
     } else {
       qs.wrongs++;
       state.finalWrongCount = (state.finalWrongCount || 0) + 1;
@@ -762,7 +850,7 @@ const App = (() => {
     const fecha = now.toLocaleDateString('es-CL', {year:'numeric', month:'long', day:'numeric'});
     const waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(WHATSAPP_MESSAGE);
     const savedName = localStorage.getItem('tumatch_cert_name_cv_adv') || '';
-    const nameHtml = savedName ? savedName : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre aquí</span>';
+    const nameHtml = savedName ? escapeHTML(savedName) : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre aquí</span>';
     const modulesListHtml = [];
     for (let i=1; i<=TOTAL_MODULES; i++) {
       modulesListHtml.push('<li><span class="cert-mod-n">' + String(i).padStart(2,'0') + '</span><span>' + MODULE_NAMES[i] + '</span></li>');
@@ -776,7 +864,7 @@ const App = (() => {
 
       '<div class="cert-name-form" style="max-width:520px;margin:0 auto 24px;background:var(--ui-surface);border:1.5px solid var(--ui-border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px">' +
         '<label style="font-family:\'Cinzel\',serif;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tealDk)">Tu nombre para el certificado</label>' +
-        '<input id="certNameInput" type="text" placeholder="Ej. María José Pérez González" value="' + savedName.replace(/"/g,'&quot;') + '" oninput="App.updateCertName(this.value)" style="font-family:\'DM Sans\',sans-serif;font-size:16px;padding:12px 14px;border:1.5px solid var(--ui-border);border-radius:10px;color:var(--ui-text);background:var(--ui-bg);outline:none;transition:border-color .15s">' +
+        '<input id="certNameInput" type="text" autocomplete="name" placeholder="Ej. María José Pérez González" value="' + escapeHTML(savedName) + '" oninput="App.updateCertName(this.value)" style="font-family:\'DM Sans\',sans-serif;font-size:16px;padding:12px 14px;border:1.5px solid var(--ui-border);border-radius:10px;color:var(--ui-text);background:var(--ui-bg);outline:none;transition:border-color .15s">' +
       '</div>' +
 
       '<div class="tm-cert" id="cert">' +
@@ -849,17 +937,25 @@ const App = (() => {
   function updateCertName(v) {
     saveCertName(v);
     const el = document.getElementById('tmCertName');
-    if (el) el.innerHTML = v && v.trim() ? v : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre aquí</span>';
+    if (!el) return;
+    if (v && v.trim()) {
+      el.textContent = v;
+    } else {
+      el.innerHTML = '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre aquí</span>';
+    }
   }
   function downloadCert() {
-    if (typeof html2canvas === 'undefined') { alert('La librería para descargar no está disponible.'); return; }
     const el = document.getElementById('cert');
-    html2canvas(el, {scale:2, backgroundColor:'#FAF8F4'}).then(canvas => {
-      const link = document.createElement('a');
-      link.download = 'Certificado_TuMatch_Cliente_Vendedor_Avanzado.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-    });
+    if (!el) return;
+    ensureHtml2Canvas()
+      .then(h2c => h2c(el, {scale:2, backgroundColor:'#FAF8F4'}))
+      .then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Certificado_TuMatch_Cliente_Vendedor_Avanzado.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      })
+      .catch(err => alert(err.message || 'No se pudo generar el PNG. Revisa tu conexión.'));
   }
 
   /* ---------- THEME ---------- */
@@ -911,7 +1007,7 @@ const App = (() => {
     answerQuestion, nextQuestion, retryQuestion, finishQuiz,
     answerFinal, nextFinal, retryFinal, finishFinal,
     toggleTheme, saveCertName, updateCertName, downloadCert, checkLock, checkFinalLock,
-    updateMiniCertName, downloadMiniCert,
+    updateMiniCertName, downloadMiniCert, optKeydown,
   };
 })();
 
