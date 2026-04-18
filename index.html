@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0D1B2A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>TuMatch · Cliente Vendedor AVANZADO · Academia de Corredores</title>
+<meta name="description" content="Taller avanzado TuMatch para corredores que trabajan con clientes vendedores: estimación de precio con CRM, psicología y objeciones profundas, perfiles de compradores, financiamiento, caprate, constructibilidad, fotografía + Gemini AI, SEO y comisiones.">
+<meta property="og:title" content="Cliente Vendedor · Nivel Avanzado · TuMatch Inmobiliario">
+<meta property="og:description" content="7 módulos avanzados · 140 preguntas rotativas · certificación oficial. CRM, perfiles, financiamiento, caprate, constructibilidad, Gemini, SEO y comisiones.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Cinzel:wght@500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-extra.css">
+<script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div class="academy-bar">
+  <span class="academy-bar-inner">Academia de Corredores · TuMatch Inmobiliario · Nivel Avanzado</span>
+</div>
+<header class="hdr">
+  <div class="grad-stripe"></div>
+  <div class="hdr-row">
+    <a class="brand-logo" href="#" onclick="App.goToModule(0);return false;" aria-label="Academia de Corredores TuMatch — Inicio">
+      <img id="brandLogoImg" class="brand-img" src="assets/tumatch_horizontal_positivo.jpg" alt="TuMatch Inmobiliario">
+      <div class="brand-tagline">
+        <div class="brand-tagline-l1">Academia de Corredores</div>
+        <div class="brand-tagline-l2">Cliente Vendedor · AVANZADO · 2026</div>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="taller-badge">Nivel Avanzado</span>
+      <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema claro/oscuro" style="background:transparent;border:1.5px solid var(--ui-border);border-radius:10px;padding:8px 12px;font-size:14px;cursor:pointer;color:var(--ui-text)">🌓</button>
+    </div>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <span class="progress-label">Progreso del taller</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <span class="progress-num" id="progressNum">0%</span>
+  </div>
+</div>
+
+<nav class="modnav">
+  <div class="modnav-inner" id="modnavInner"></div>
+</nav>
+
+<!-- ======================================================
+     MÓDULO 0 · INTRO
+     ====================================================== -->
+<section class="module active" id="mod-0">
+  <div class="hero-new">
+    <div class="hero-new-inner">
+      <div class="hero-academy-mark">Academia de Corredores · Avanzado</div>
+      <img id="heroLogoImg" class="hero-logo" src="assets/tumatch_horizontal_positivo.jpg" alt="TuMatch Inmobiliario">
+      <div class="hero-eyebrow-line">Cliente Vendedor · MMXXVI · Nivel Avanzado</div>
+      <h1 class="hero-title">Cliente<br><em>Vendedor</em><br>Avanzado</h1>
+      <p class="hero-lead">7 módulos avanzados para corredores que ya saben captar. Aquí profundizas en CRM + tasación, psicología y objeciones profundas, perfiles de compradores, financiamiento, caprate, constructibilidad, Gemini AI, SEO y comisiones.</p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-num">7</div>
+          <div class="hero-meta-lbl">Módulos avanzados</div>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-num">~3<span class="u">h</span></div>
+          <div class="hero-meta-lbl">Duración total</div>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-num">140<span class="u">+</span></div>
+          <div class="hero-meta-lbl">Preguntas rotativas</div>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-num">1</div>
+          <div class="hero-meta-lbl">Certificado oficial</div>
+        </div>
+      </div>
+
+      <div id="resumeBanner" class="resume-banner" style="display:none">
+        <div class="resume-banner-icon">📖</div>
+        <div class="resume-banner-body">
+          <div class="resume-banner-title">Tienes avance guardado</div>
+          <div class="resume-banner-text" id="resumeBannerText">Puedes continuar donde quedaste.</div>
+        </div>
+        <button class="btn btn-primary resume-banner-btn" id="resumeBannerBtn">Continuar →</button>
+      </div>
+
+      <div class="hero-cta-row">
+        <button class="hero-cta-new" onclick="App.startModule(1)" id="heroStartBtn">Comenzar taller avanzado →</button>
+      </div>
+
+      <div class="hero-save-hint">
+        <span class="save-dot"></span>
+        <span>Tu avance se guarda automáticamente. Si fallas 5 preguntas acumuladas en un módulo, el quiz se bloquea 10 minutos — respira, repasa y vuelve.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="sec-header" style="text-align:center;margin-bottom:36px">
+      <div class="sec-tag" style="margin-left:auto;margin-right:auto"><span class="dot"></span>Contenido del taller avanzado</div>
+      <h2 class="sec-h2" style="margin-left:auto;margin-right:auto;max-width:780px">7 módulos · del precio al cierre, con CRM en cada paso</h2>
+      <p class="sec-desc" style="margin-left:auto;margin-right:auto">Cada módulo combina teoría, herramientas del CRM TuMatch (<code>tumatch-leads.vercel.app</code>) y quiz rotativo de 5 preguntas tomadas de un banco de 20. Tras 5 errores acumulados, el módulo se bloquea 10 minutos.</p>
+    </div>
+
+    <div class="mod-timeline">
+      <div class="mod-t-item" onclick="App.startModule(1)">
+        <div class="mod-t-num">01</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Estimación profesional de precio · ACM y CRM Tasación</div>
+            <div class="mod-t-time">≈ 22 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>ACM 3 capas</span><span>/herramientas/tasacion</span><span>Ajustes técnicos</span><span>Precio lista vs objetivo vs piso</span><span>Ficha propiedad en CRM</span>
+          </div>
+        </div>
+      </div>
+      <div class="mod-t-item" onclick="App.startModule(2)">
+        <div class="mod-t-num">02</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Psicología del vendedor · Urgencia real y objeciones profundas</div>
+            <div class="mod-t-time">≈ 22 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>Motivación real vs declarada</span><span>Anclaje (Kahneman)</span><span>SPIN · LAARC</span><span>"Mi vecino vendió más caro"</span><span>Silencio estratégico</span>
+          </div>
+        </div>
+      </div>
+      <div class="mod-t-item" onclick="App.startModule(3)">
+        <div class="mod-t-num">03</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Perfiles de comprador según tipo de propiedad</div>
+            <div class="mod-t-time">≈ 20 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>Primera vivienda · subsidio</span><span>Inversionista · caprate</span><span>Upgrader familiar</span><span>Comprador cash</span><span>Match propiedad ↔ perfil</span>
+          </div>
+        </div>
+      </div>
+      <div class="mod-t-item" onclick="App.startModule(4)">
+        <div class="mod-t-num">04</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Financiamiento · crédito, leasing, subsidio, arriendo con opción de compra</div>
+            <div class="mod-t-time">≈ 24 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>Pie 10–20%</span><span>Ratio dividendo/renta</span><span>Leasing habitacional</span><span>DS1 / DS49 · DFL2</span><span>No regularización = cash only</span>
+          </div>
+        </div>
+      </div>
+      <div class="mod-t-item" onclick="App.startModule(5)">
+        <div class="mod-t-num">05</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Caprate, arriendo estimado, sector y constructibilidad</div>
+            <div class="mod-t-time">≈ 22 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>Cap rate bruto/neto</span><span>Payback</span><span>Plan Regulador</span><span>Coef. constructibilidad</span><span>Plusvalía del sector</span>
+          </div>
+        </div>
+      </div>
+      <div class="mod-t-item" onclick="App.startModule(6)">
+        <div class="mod-t-num">06</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Fotografía, video, Gemini AI y SEO en el CRM</div>
+            <div class="mod-t-time">≈ 22 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>Lente 16–35 + HDR</span><span>Golden hour · staging</span><span>Gemini prompts</span><span>Título + descripción SEO</span><span>Publicación CRM → portales</span>
+          </div>
+        </div>
+      </div>
+      <div class="mod-t-item" onclick="App.startModule(7)">
+        <div class="mod-t-num">07</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Cierre profesional · comisiones corredor + al cliente</div>
+            <div class="mod-t-time">≈ 20 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>Captador vendedor 10%</span><span>Gestor con TL 60%</span><span>Cliente vendedor 2%+IVA</span><span>Exclusividad</span><span>/herramientas/calculadora-comision</span>
+          </div>
+        </div>
+      </div>
+      <div class="mod-t-item mod-t-final" onclick="App.goToModule(8)">
+        <div class="mod-t-num">★</div>
+        <div class="mod-t-body">
+          <div class="mod-t-head">
+            <div class="mod-t-title">Prueba Final · Certificación Cliente Vendedor Avanzado</div>
+            <div class="mod-t-time">≈ 15 min</div>
+          </div>
+          <div class="mod-t-keys">
+            <span>14 preguntas · banco de 40</span><span>14/14 aprueba</span><span>Certificado PNG descargable</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================
+     MÓDULO 1 · ESTIMACIÓN DE PRECIO + CRM
+     ====================================================== -->
+<section class="module" id="mod-1">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Módulo 01 · Precio y CRM</div>
+      <h2 class="sec-h2">Estimación profesional de precio · ACM y <span style="color:var(--tealDk)">CRM Tasación</span></h2>
+      <p class="sec-desc">El precio es la decisión más importante de toda la gestión. Sobreprecio = propiedad quemada 90 días. Sub-precio = pérdida del cliente. Este módulo te enseña a fijarlo técnicamente con el CRM.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">1. Las 3 capas del ACM (Análisis Comparativo de Mercado)</h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-num">1</div>
+          <h4>Comparables VENDIDOS</h4>
+          <p>Propiedades similares efectivamente vendidas en los últimos 6–12 meses en un radio de 500 m. Es la <strong>realidad del mercado</strong>. Fuente: CBR, escrituras, precios de cierre en portales. <em>Esta capa manda.</em></p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">2</div>
+          <h4>Comparables EN VENTA</h4>
+          <p>Propiedades similares publicadas hoy. Representa la <strong>competencia directa</strong>. Ojo: son precios de lista, no de cierre — suelen estar 5–12% sobre el precio final.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">3</div>
+          <h4>Comparables RETIRADOS</h4>
+          <p>Propiedades que se publicaron y no vendieron (90+ días sin cerrar). Dicen el <strong>techo máximo</strong>: sobre ese precio la propiedad no se mueve. Tan valioso como los vendidos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">2. Herramienta oficial: <code>/herramientas/tasacion</code></h3>
+      <div class="tool-call">
+        <div class="tool-call-label">Herramienta CRM TuMatch</div>
+        <div class="tool-call-title">Tasación · estimación de precio</div>
+        <div class="tool-call-desc">En <code>tumatch-leads.vercel.app/herramientas/tasacion</code> ingresas la propiedad (comuna, m² útil, m² terraza, dormitorios, baños, estacionamientos, bodega, antigüedad, piso, orientación). La herramienta entrega un rango sugerido en UF/m² y UF totales.</div>
+        <ul class="tool-call-list">
+          <li><strong>Output 1</strong>: UF/m² del sector actualizado</li>
+          <li><strong>Output 2</strong>: Rango bajo – medio – alto</li>
+          <li><strong>Output 3</strong>: Deltas por piso, orientación, estado, amenities</li>
+          <li><strong>Flujo obligatorio</strong>: guardar en ficha del lead <em>Vendedor</em> en el CRM, adjuntar a la reunión de captación.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">3. Ajustes técnicos al comparable</h3>
+      <div class="price-adjust-grid">
+        <div class="adjust-row"><div class="adjust-factor">Metros útiles</div><div class="adjust-delta">±2–4% por cada 10 m² de diferencia</div></div>
+        <div class="adjust-row"><div class="adjust-factor">Piso (edificio)</div><div class="adjust-delta">+1,5%/piso sobre el 3° · techo en piso 12–15</div></div>
+        <div class="adjust-row"><div class="adjust-factor">Orientación</div><div class="adjust-delta">Norte/Oriente +3–6% vs Poniente/Sur</div></div>
+        <div class="adjust-row"><div class="adjust-factor">Estacionamiento</div><div class="adjust-delta">+250 a +600 UF c/u (depende comuna)</div></div>
+        <div class="adjust-row"><div class="adjust-factor">Bodega</div><div class="adjust-delta">+60 a +180 UF</div></div>
+        <div class="adjust-row"><div class="adjust-factor">Estado (obra gruesa vs terminado)</div><div class="adjust-delta">–8% a –18% si requiere remodelación</div></div>
+        <div class="adjust-row"><div class="adjust-factor">Antigüedad (&gt;30 años)</div><div class="adjust-delta">–3% a –10% según barrio</div></div>
+        <div class="adjust-row"><div class="adjust-factor">Amenities (piscina, quincho, gym)</div><div class="adjust-delta">+2–5% agregado al edificio</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">4. Precio de lista · objetivo · piso</h3>
+      <div class="tripod-grid">
+        <div class="tripod-card tripod-list">
+          <div class="tripod-tag">Lista</div>
+          <div class="tripod-title">Precio al aire</div>
+          <div class="tripod-body">El publicado en portales. 3–5% sobre el precio objetivo deja margen para negociar sin perder al buen comprador.</div>
+        </div>
+        <div class="tripod-card tripod-obj">
+          <div class="tripod-tag">Objetivo</div>
+          <div class="tripod-title">Precio esperado</div>
+          <div class="tripod-body">Lo que realmente esperamos cerrar. Alineado con ACM. Es la cifra que compartes confidencialmente con el vendedor.</div>
+        </div>
+        <div class="tripod-card tripod-floor">
+          <div class="tripod-tag">Piso</div>
+          <div class="tripod-title">Mínimo aceptable</div>
+          <div class="tripod-body">El no-pasar. Debajo de esto el cliente rechaza. Te lo guardas tú; nunca se lo cuentas al comprador en primera ronda.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">5. Registrar la tasación en el CRM</h3>
+      <div class="crm-flow">
+        <div class="crm-step"><div class="crm-step-n">1</div><div class="crm-step-body"><strong>Crear lead</strong> tipo <em>Vendedor</em> en <code>/leads</code> con nombre, contacto, dirección propiedad.</div></div>
+        <div class="crm-step"><div class="crm-step-n">2</div><div class="crm-step-body"><strong>Ficha de propiedad</strong>: completar todos los campos (m², dormitorios, piso, etc.). El CRM auto-calcula ACM preliminar.</div></div>
+        <div class="crm-step"><div class="crm-step-n">3</div><div class="crm-step-body"><strong>Adjuntar comparables</strong>: agregar 3–5 vendidos + 3 en venta + 2 retirados como evidencia.</div></div>
+        <div class="crm-step"><div class="crm-step-n">4</div><div class="crm-step-body"><strong>Reunión de precio</strong>: usar el CRM proyectado en pantalla con el vendedor para que vea la evidencia, no tu opinión.</div></div>
+        <div class="crm-step"><div class="crm-step-n">5</div><div class="crm-step-body"><strong>Acuerdo por escrito</strong> del precio de lista, objetivo y piso. Queda firmado en el CRM.</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">6. Regla del sobreprecio</h3>
+      <div class="key-quote">Cada 30 días con sobreprecio = –7% de interés real. A los 90 días la propiedad está <strong>quemada</strong>: portales la esconden y los compradores serios la ignoran.</div>
+      <p>Si el cliente insiste en publicarla 15% sobre ACM, <strong>aceptar con plazo</strong>: 30 días a su precio, luego se ajusta al objetivo del ACM. Deja eso firmado.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">7. Checklist pre-publicación</h3>
+      <ul class="checklist">
+        <li>✓ ACM con 3 capas firmado en CRM</li>
+        <li>✓ Precio lista / objetivo / piso acordados y firmados</li>
+        <li>✓ Propiedad regularizada verificada (ver módulo 4)</li>
+        <li>✓ Tasación proyectable al cliente en pantalla</li>
+        <li>✓ Delta precio lista vs ACM &lt; 5%</li>
+      </ul>
+    </div>
+
+    <div class="quiz-gate" id="quiz-1"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     MÓDULO 2 · PSICOLOGÍA Y OBJECIONES
+     ====================================================== -->
+<section class="module" id="mod-2">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Módulo 02 · Psicología</div>
+      <h2 class="sec-h2">Psicología del vendedor · <span style="color:var(--tealDk)">urgencia real</span> y objeciones profundas</h2>
+      <p class="sec-desc">Detrás de cada venta hay una historia. Divorcio, herencia, mudanza, deuda, inversión. La motivación real — no la declarada — define precio, plazo y estilo de negociación.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">1. Motivación real vs motivación declarada</h3>
+      <div class="two-col">
+        <div class="col-card col-card-soft">
+          <h4>Declarada (superficie)</h4>
+          <ul>
+            <li>"Quiero vender porque sí"</li>
+            <li>"Es una buena oportunidad de mercado"</li>
+            <li>"Me interesa explorar"</li>
+          </ul>
+        </div>
+        <div class="col-card col-card-accent">
+          <h4>Real (profunda)</h4>
+          <ul>
+            <li>Cambio familiar: divorcio, hijo nuevo, mudanza laboral</li>
+            <li>Financiera: quiere pagar deuda, liquidez, rebalancear</li>
+            <li>Herencia: co-propietarios, Posesión Efectiva</li>
+            <li>Inversión: reubicar capital en mejor yield</li>
+            <li>Emocional: la propiedad le pesa, le recuerda algo</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:14px"><strong>Pregunta clave</strong>: "¿Qué vas a hacer con el dinero de la venta?" — la respuesta real revela urgencia, flexibilidad de precio y plazo.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">2. Urgencia real — 4 señales</h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-num">A</div><h4>Plazo duro</h4>
+          <p>Existe una fecha inamovible: escritura de divorcio, reserva del próximo departamento, viaje fuera del país. <strong>Alta flexibilidad de precio.</strong></p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">B</div><h4>Costo de mantención</h4>
+          <p>Gastos comunes altos, contribuciones, arriendo actual paralelo. Cada mes sin vender = pérdida real. <strong>Negocia baja hacia el ACM con velocidad.</strong></p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">C</div><h4>Segundo mandato</h4>
+          <p>Ya lo intentó con otro corredor sin cerrar. La señal: cansancio + apertura. Ofrece plan distinto + exclusividad de 90 días.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">D</div><h4>Liquidez para nueva compra</h4>
+          <p>Compró otra propiedad con contrato condicionado. La urgencia es pura: sin venta no hay compra. <strong>Aquí la exclusividad es obvia.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">3. Anclaje — el sesgo que te jugará en contra</h3>
+      <p>Kahneman (Pensar rápido, pensar despacio) describe que el cerebro fija un ancla numérica y ajusta desde ahí. Si el vendedor se ancló en "300 millones porque mi vecino vendió en 300", bajar a 260 le duele el doble. Tu trabajo: <strong>desanclar con evidencia dura</strong> antes que con opinión.</p>
+      <div class="key-quote">Nunca discutas contra el ancla. Muéstrala junto a 10 comparables. El ancla se disuelve sola cuando el cliente ve la evidencia.</div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">4. SPIN Selling aplicado al vendedor</h3>
+      <div class="spin-grid">
+        <div class="spin-card"><div class="spin-letter">S</div><div><strong>Situación</strong><p>"¿Hace cuánto tienes la propiedad? ¿Vive alguien?"</p></div></div>
+        <div class="spin-card"><div class="spin-letter">P</div><div><strong>Problema</strong><p>"¿Qué te llevó a pensar en vender hoy?"</p></div></div>
+        <div class="spin-card"><div class="spin-letter">I</div><div><strong>Implicación</strong><p>"¿Qué pasa si no vendes en 6 meses?"</p></div></div>
+        <div class="spin-card"><div class="spin-letter">N</div><div><strong>Necesidad-pago</strong><p>"¿Te sirve cerrar en 60 días al precio ACM?"</p></div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">5. LAARC · manejar objeciones sin chocar</h3>
+      <div class="laarc-flow">
+        <div class="laarc-step"><strong>L</strong>isten — no interrumpir, dejar que termine</div>
+        <div class="laarc-step"><strong>A</strong>cknowledge — "Entiendo por qué lo ves así"</div>
+        <div class="laarc-step"><strong>A</strong>ssess — "¿Qué haría que esto funcionara para ti?"</div>
+        <div class="laarc-step"><strong>R</strong>espond — con evidencia y alternativa concreta</div>
+        <div class="laarc-step"><strong>C</strong>onfirm — "¿Tiene sentido para ti?"</div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">6. Objeciones profundas · guion verificado</h3>
+      <div class="obj-list">
+        <div class="obj-item">
+          <div class="obj-q">"Mi vecino vendió en X, yo quiero lo mismo"</div>
+          <div class="obj-a"><strong>L+A:</strong> "Claro, tiene sentido tomarlo como referencia." <strong>R:</strong> "Déjame mostrarte: ese vecino vendió hace 14 meses con tasa al 4,2%; hoy está al 5,1% y los compradores califican por menos. Aquí están los 6 cierres del último trimestre en tu edificio." <strong>C:</strong> "¿Tiene sentido mirar los cierres del trimestre?"</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-q">"No tengo apuro, puedo esperar"</div>
+          <div class="obj-a"><strong>R:</strong> "Perfecto. Solo quiero asegurarme de dos cosas: que pagar gastos comunes + contribuciones + costo de oportunidad de tener el capital parado está OK para ti (~0,5% mensual). Y que entiendes que cada 30 días sobre ACM = –7% interés real." <strong>C:</strong> "¿Seguimos con precio al aire y ajuste en 30 días?"</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-q">"Prefiero publicarla yo mismo, ahorro comisión"</div>
+          <div class="obj-a"><strong>A:</strong> "Varios clientes lo han hecho." <strong>R:</strong> "Estudios CChC: propiedades FSBO venden en promedio 12% más barato y demoran 2,3× más. Mi comisión (2% + IVA) queda compensada 6× por el precio final y filtrado de compradores que no califican." <strong>C:</strong> "¿Probamos 30 días en exclusiva y mides?"</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-q">"Tengo otro corredor que me ofrece más caro"</div>
+          <div class="obj-a"><strong>R:</strong> "Puede pasar. El truco del sobreprecio inicial es conocido: capta el mandato y a los 60 días te pide bajar. ¿Quieres que te muestre 3 mandatos similares del último año con ese patrón?" <strong>C:</strong> "¿Te sirve que comparemos ambos planes en papel?"</div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-q">"La propiedad tiene recuerdos, no la voy a regalar"</div>
+          <div class="obj-a"><strong>A:</strong> "Entiendo totalmente. Esta propiedad importa." <strong>R:</strong> "El valor emocional es real pero el mercado no lo paga. El mejor homenaje a los recuerdos es venderla al precio correcto a una familia que la va a querer, no dejarla vacía 1 año." <strong>C:</strong> "¿Hacemos que encuentre dueño nuevo rápido?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">7. Silencio estratégico</h3>
+      <p>Tras plantear el precio objetivo, <strong>silencio 7 segundos</strong>. El primer que habla, cede. El vendedor suele llenar el silencio con un matiz que te entrega información.</p>
+    </div>
+
+    <div class="quiz-gate" id="quiz-2"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     MÓDULO 3 · PERFILES DE COMPRADOR
+     ====================================================== -->
+<section class="module" id="mod-3">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Módulo 03 · Perfiles</div>
+      <h2 class="sec-h2">Perfiles de comprador <span style="color:var(--tealDk)">según tu propiedad</span></h2>
+      <p class="sec-desc">No todas las propiedades matchean con todos los compradores. Saber a quién le calza lo que vendes define tu canal, tu argumento y tu portafolio de objeciones.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">1. Los 5 perfiles de comprador en Chile</h3>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-icon">🏠</div>
+          <h4>Primera Vivienda (DICOM-libre)</h4>
+          <p><strong>Edad:</strong> 28–42 · <strong>Ingreso:</strong> $1,2–3 M CLP · <strong>Califica:</strong> crédito 80–90%, dividendo/renta &lt;25%, subsidio DS1.</p>
+          <p><strong>Criterio:</strong> ubicación (metro, colegios, servicios) · espacio para familia · <em>no</em> caprate.</p>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon">📈</div>
+          <h4>Inversionista renta</h4>
+          <p><strong>Edad:</strong> 35–60 · <strong>Criterio:</strong> cap rate bruto &gt; 5,5%, arriendo estable, seminuevo para IVA, SpA con RUT.</p>
+          <p>Busca 1D1B o 2D1B cerca de metro / universidades / polos laborales. No le importan colegios.</p>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon">🔁</div>
+          <h4>Upgrader familiar</h4>
+          <p><strong>Edad:</strong> 38–55 · <strong>Criterio:</strong> más m² por crecimiento familiar. Vende otra propiedad en paralelo.</p>
+          <p>Compra condicionada a la venta propia; exige flexibilidad de plazos.</p>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon">💵</div>
+          <h4>Comprador Cash</h4>
+          <p><strong>Edad:</strong> 50+ o inversionista con liquidez. <strong>Criterio:</strong> oportunidad. Quiere descuento por pago rápido.</p>
+          <p>No necesita banco. Compra propiedades no regularizadas que otros no pueden tomar.</p>
+        </div>
+        <div class="profile-card">
+          <div class="profile-icon">🌎</div>
+          <h4>Extranjero / residente fuera</h4>
+          <p><strong>Criterio:</strong> activo de resguardo, diversificación. Quiere gestor remoto. Paga en CLP pero piensa en USD.</p>
+          <p>Aprecia reportería, video-tour y cierre con notaría remota.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">2. Matriz propiedad ↔ perfil</h3>
+      <div class="match-table">
+        <div class="match-row match-row-head"><div>Tipo de propiedad</div><div>Perfil principal</div><div>Perfil secundario</div><div>Evitar</div></div>
+        <div class="match-row"><div>Depto 1D1B metro centro/Providencia</div><div>Inversionista renta</div><div>Soltero primera vivienda</div><div>Familia</div></div>
+        <div class="match-row"><div>Depto 2D2B +3 años, metro</div><div>Primera vivienda pareja</div><div>Inversionista seminuevo</div><div>Upgrader (falta m²)</div></div>
+        <div class="match-row"><div>Depto 3D familiar nuevo</div><div>Upgrader familiar</div><div>Primera vivienda alto ingreso</div><div>Inversionista (cap rate bajo)</div></div>
+        <div class="match-row"><div>Casa periferia con patio</div><div>Primera vivienda familia</div><div>Upgrader</div><div>Inversionista renta urbana</div></div>
+        <div class="match-row"><div>Propiedad no regularizada</div><div>Comprador cash</div><div>Inversionista que regulariza</div><div>Primera vivienda con crédito/subsidio</div></div>
+        <div class="match-row"><div>Propiedad con terreno grande (constructibilidad alta)</div><div>Inmobiliaria / desarrollador</div><div>Comprador cash</div><div>Primera vivienda sin visión</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">3. Argumentos de venta según perfil</h3>
+      <div class="arg-grid">
+        <div class="arg-card">
+          <h4>A un primera vivienda</h4>
+          <ul><li>Metros, orientación, colegios cercanos, metro a X cuadras</li><li>Dividendo mensual estimado con calculadora hipotecaria</li><li>Subsidio aplicable</li><li>Historia emocional del barrio</li></ul>
+        </div>
+        <div class="arg-card">
+          <h4>A un inversionista</h4>
+          <ul><li>Cap rate bruto estimado con valor de arriendo de zona</li><li>Caja mensual neta después de gastos comunes + contribuciones</li><li>Stock de arriendo de la zona (vacancia baja)</li><li>IVA recuperable si aplica seminuevo</li></ul>
+        </div>
+        <div class="arg-card">
+          <h4>A un upgrader</h4>
+          <ul><li>Flexibilidad de fecha de escritura</li><li>Compra condicionada a venta de su propiedad</li><li>Puedes tomar <em>ambos lados</em> (vende y compra contigo)</li></ul>
+        </div>
+        <div class="arg-card">
+          <h4>A un cash / extranjero</h4>
+          <ul><li>Descuento por pago rápido (3–5%)</li><li>Resolución de títulos en menos de 30 días</li><li>Reportería mensual, video-tour, notaría remota si aplica</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">4. Registrar perfiles en el CRM</h3>
+      <p>En <code>/leads</code> cada comprador interesado debe etiquetarse correctamente como <em>Comprador Primera Vivienda</em>, <em>Comprador Inversión</em> o <em>Comprador Cash</em>. Esto activa:</p>
+      <ul class="checklist">
+        <li>✓ <strong>InvestmentAnalysisCard</strong> automática para inversionistas (cap rate, plusvalía, cash-on-cash)</li>
+        <li>✓ Sistema de matching propiedad ↔ leads compatibles</li>
+        <li>✓ El chat del CRM adapta el tono: al inversionista habla en cap rate y DAP; al primera vivienda, en dividendo y subsidio.</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">5. Si el perfil no calza, no insistas</h3>
+      <div class="key-quote">Un comprador equivocado te roba 30 días y llena tu pipeline de ruido. Derívalo a otra propiedad TuMatch o agrégalo a tu stock de compradores en espera.</div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">6. El comprador ideal se escribe antes de publicar</h3>
+      <p>Antes de tomar la foto, el título o el copy, define en 3 líneas: "Este depto es para [perfil], porque [razón 1], [razón 2], [razón 3]". <strong>Todo el marketing sigue esa brújula.</strong></p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">7. Dual-match · vender y colocar a otro cliente</h3>
+      <p>Tu lead vendedor es también un potencial comprador (upgrader). Revisa en el CRM si aplica una <strong>doble operación</strong>: le vendes la actual y le buscas la próxima. Una misma persona, dos lados, dos comisiones.</p>
+    </div>
+
+    <div class="quiz-gate" id="quiz-3"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     MÓDULO 4 · FINANCIAMIENTO
+     ====================================================== -->
+<section class="module" id="mod-4">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Módulo 04 · Financiamiento</div>
+      <h2 class="sec-h2">Financiamiento del comprador · <span style="color:var(--tealDk)">qué lo habilita y qué lo excluye</span></h2>
+      <p class="sec-desc">Saber cómo compra el comprador te deja negociar plazos, elegir perfil correcto y — sobre todo — anticipar si tu propiedad es financiable o no.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">1. Crédito hipotecario en Chile 2026</h3>
+      <div class="fin-card">
+        <div class="fin-row"><div class="fin-k">Pie mínimo</div><div class="fin-v">10–20% del valor (primera vivienda) · 20–30% (inversión)</div></div>
+        <div class="fin-row"><div class="fin-k">Plazo</div><div class="fin-v">15, 20, 25 o 30 años</div></div>
+        <div class="fin-row"><div class="fin-k">Tasa referencial 2026</div><div class="fin-v">UF + 4,4% – 5,2% anual (variable por banco)</div></div>
+        <div class="fin-row"><div class="fin-k">Ratio dividendo/renta líquida</div><div class="fin-v">≤ 25% (regla del pulgar · CMF)</div></div>
+        <div class="fin-row"><div class="fin-k">Antigüedad laboral</div><div class="fin-v">12 meses dependiente / 24 meses independiente</div></div>
+        <div class="fin-row"><div class="fin-k">DICOM</div><div class="fin-v">Limpio obligatorio</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">2. Subsidios habitacionales vigentes</h3>
+      <div class="sub-grid">
+        <div class="sub-card"><h4>DS49</h4><p>Sin deuda. Familias hasta 60% de vulnerabilidad. Propiedades hasta 1.500 UF. Vivienda económica en sectores específicos.</p></div>
+        <div class="sub-card"><h4>DS1 · Tramo 1</h4><p>Con crédito. Propiedades hasta 1.400 UF. Subsidio hasta 700 UF. Clase media emergente.</p></div>
+        <div class="sub-card"><h4>DS1 · Tramo 2</h4><p>Con crédito. Propiedades hasta 2.200 UF. Subsidio hasta 500 UF. Clase media.</p></div>
+        <div class="sub-card"><h4>DS1 · Tramo 3</h4><p>Con crédito. Propiedades hasta 3.000 UF. Subsidio hasta 300 UF. Clase media consolidada.</p></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">3. Leasing habitacional</h3>
+      <p>El banco compra la propiedad y te la arrienda con opción de compra al final. <strong>No requiere pie</strong> (solo ahorro metódico), pero la cuota es más alta y la propiedad queda a nombre del banco hasta el último pago.</p>
+      <div class="two-col">
+        <div class="col-card col-card-soft"><h4>Ventajas leasing</h4><ul><li>Sin pie inicial grande</li><li>Acceso si no calificas a crédito directo</li><li>Protección en caso de cesantía (opcional)</li></ul></div>
+        <div class="col-card col-card-accent"><h4>Desventajas leasing</h4><ul><li>Cuota 15–25% más alta que crédito equivalente</li><li>Propiedad no es tuya hasta el último mes</li><li>Menos bancos lo ofrecen</li></ul></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">4. Arriendo con opción de compra · cuándo conviene</h3>
+      <p>El vendedor arrienda al futuro comprador por 12–24 meses; durante ese periodo se fija precio y parte del arriendo se descuenta del precio final.</p>
+      <div class="key-quote">Ideal cuando: el comprador aún no califica a crédito, el vendedor no tiene urgencia total, y el mercado está congelado. Se cobra 2–3% más que el arriendo normal por la "opción".</div>
+      <ul class="checklist">
+        <li>✓ Contrato notariado con precio fijo, plazo, monto descontable, gatillo de compra</li>
+        <li>✓ Qué pasa si el comprador no ejecuta la opción (queda como arriendo común)</li>
+        <li>✓ Resguardo: sube un 3–5% el precio final para compensar tiempo bloqueado</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">5. Regularización · la trampa silenciosa</h3>
+      <p>Una propiedad <strong>no regularizada</strong> es la que tiene construcción sin permiso municipal y sin recepción final. Puede ser una ampliación, segundo piso, conversión de patio en quincho, etc.</p>
+      <div class="reg-impact">
+        <div class="reg-card reg-no">
+          <h4>✗ Comprador con crédito hipotecario</h4>
+          <p><strong>No puede comprar.</strong> El banco pide tasación con escritura + plano municipal coincidente. Si hay m² no declarados, la tasación se rebaja a los m² declarados y el monto del crédito no alcanza. Operación cae.</p>
+        </div>
+        <div class="reg-card reg-no">
+          <h4>✗ Comprador con subsidio (DS1/DS49)</h4>
+          <p><strong>No puede comprar.</strong> El SERVIU exige recepción final vigente. Sin ella, el subsidio no se gatilla.</p>
+        </div>
+        <div class="reg-card reg-ok">
+          <h4>✓ Comprador cash</h4>
+          <p>Puede comprar <em>asumiendo el riesgo</em>: multa eventual de la DOM (2% avalúo fiscal) más costo de regularización ($800k–$3M según comuna y m² no declarados).</p>
+        </div>
+      </div>
+      <p style="margin-top:16px"><strong>Ley del Mono</strong> (Ley 20.898): permite regularizar ampliaciones hasta ciertos metros. Si tu propiedad no es regularizable, hay que demoler lo no autorizado antes de vender a comprador con crédito.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">6. DFL2 · beneficio tributario que vende</h3>
+      <p>Propiedades con calificación DFL2 (vivienda económica hasta 140 m²) tienen beneficios: <strong>50% menos contribuciones</strong> durante 10–20 años, rentas de arriendo <strong>no tributan</strong> hasta 2 propiedades por RUT, y menor impuesto a la herencia.</p>
+      <p>Si tu propiedad es DFL2, es un <strong>argumento de venta clave</strong> al inversionista.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">7. Checklist de financiabilidad antes de publicar</h3>
+      <ul class="checklist">
+        <li>✓ Escritura vigente a nombre del vendedor (y su cónyuge si aplica)</li>
+        <li>✓ Certificado de dominio vigente CBR (últimos 30 días)</li>
+        <li>✓ Certificado hipotecas y gravámenes sin embargos activos</li>
+        <li>✓ Recepción final municipal (si post-1976)</li>
+        <li>✓ Planos coincidentes con estado actual</li>
+        <li>✓ Contribuciones al día</li>
+        <li>✓ Gastos comunes al día (si corresponde)</li>
+        <li>✓ DFL2 identificado (si aplica)</li>
+      </ul>
+    </div>
+
+    <div class="quiz-gate" id="quiz-4"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     MÓDULO 5 · CAPRATE, SECTOR, CONSTRUCTIBILIDAD
+     ====================================================== -->
+<section class="module" id="mod-5">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Módulo 05 · Análisis técnico</div>
+      <h2 class="sec-h2">Caprate, arriendo, sector y <span style="color:var(--tealDk)">constructibilidad</span></h2>
+      <p class="sec-desc">La propiedad no vale solo por sus m². Vale por la renta que puede generar (inversionista), por el barrio (primera vivienda) y por lo que se puede construir en su terreno (desarrollador).</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">1. Estimar el valor de arriendo</h3>
+      <p>Para vender a un inversionista, necesitas estimar <strong>cuánto arrendaría</strong> esa propiedad. Fuentes:</p>
+      <ul class="checklist">
+        <li>✓ Arriendos publicados en portales (Toctoc, portalinmobiliario) filtrados por tu zona y tipología</li>
+        <li>✓ Arriendos <em>ya tomados</em> que conozcas por el CRM TuMatch</li>
+        <li>✓ Ratio arriendo/precio del sector (aprox. 0,45–0,70% mensual bruto)</li>
+      </ul>
+      <div class="calc-box">
+        <div class="calc-title">Fórmula rápida · Arriendo mensual estimado</div>
+        <div class="calc-formula">Arriendo <small>(UF)</small> = Precio venta <small>(UF)</small> × ratio zona <small>(0,0045–0,0070)</small></div>
+        <div class="calc-example">Ejemplo: depto 2.500 UF en Ñuñoa, ratio 0,0055 → arriendo ≈ <strong>13,75 UF/mes</strong></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">2. Cap rate — bruto y neto</h3>
+      <div class="caprate-grid">
+        <div class="caprate-card">
+          <h4>Cap rate BRUTO</h4>
+          <div class="caprate-formula">(Arriendo anual / Precio) × 100</div>
+          <p>Ignora gastos. Útil para <strong>comparar</strong> propiedades rápido. Benchmark bueno: &gt; 5,5% bruto.</p>
+        </div>
+        <div class="caprate-card">
+          <h4>Cap rate NETO</h4>
+          <div class="caprate-formula">((Arriendo − GC − Contrib. − Seguros − Vacancia 8%) × 12) / Precio</div>
+          <p>Realidad del inversionista. Benchmark bueno: &gt; 4,0% neto. Bajo 3,2% es no competitivo vs DAP.</p>
+        </div>
+      </div>
+      <div class="key-quote">Regla TuMatch: si el cap rate neto es menor que la tasa de un DAP + 1%, la propiedad solo se vende a primera vivienda. Olvida al inversionista.</div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">3. Payback · ¿en cuántos años se paga sola?</h3>
+      <div class="calc-box">
+        <div class="calc-title">Payback (años) = 100 / cap rate neto %</div>
+        <div class="calc-example">Cap neto 4,5% → payback ≈ 22 años. Cap neto 6% → payback ≈ 17 años.</div>
+      </div>
+      <p>Herramienta CRM: <code>/herramientas/rentabilidad</code> calcula cap rate bruto, neto, cash-on-cash, plusvalía 5 años y payback. <strong>Adjúntalo al aviso</strong> cuando apuntas a inversionista.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">4. Análisis de sector · lo que sí importa</h3>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-num">🚇</div><h4>Accesibilidad</h4>
+          <p>Metro a &lt;8 min caminando sube 8–15% el precio. Estación futura (MOP anunciado) anticipa plusvalía.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">🏫</div><h4>Colegios</h4>
+          <p>Para primera vivienda familia es decisivo. 3 colegios en 1 km es un argumento sólido.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">🛒</div><h4>Comercio y servicios</h4>
+          <p>Supermercado, farmacia, gimnasio, cafeterías a 500 m. Urbanismo 15-min gana plusvalía.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">🌳</div><h4>Áreas verdes</h4>
+          <p>Parque a &lt;400 m suma 3–7% al valor. Barrio con arborización urbana se vende más rápido.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">🚔</div><h4>Seguridad</h4>
+          <p>Índice comunal (SUBDERE) + percepción del barrio. Una cuadra marca diferencia de 10%.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-num">📈</div><h4>Plusvalía histórica</h4>
+          <p>Variación UF/m² últimos 5 años. Comunas con Plan Regulador en revisión suelen subir.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">5. Constructibilidad · qué se puede construir en el terreno</h3>
+      <p>Regido por el <strong>Plan Regulador Comunal (PRC)</strong>. Los valores clave:</p>
+      <div class="fin-card">
+        <div class="fin-row"><div class="fin-k">Coeficiente de constructibilidad</div><div class="fin-v">Cuántos m² construidos permite por m² de terreno (ej: 3,0 en zona mixta de altura)</div></div>
+        <div class="fin-row"><div class="fin-k">Coeficiente de ocupación de suelo</div><div class="fin-v">% del terreno que puede ocupar la huella (ej: 0,5 = 50%)</div></div>
+        <div class="fin-row"><div class="fin-k">Altura máxima</div><div class="fin-v">Metros o pisos (ej: 21 m / 7 pisos)</div></div>
+        <div class="fin-row"><div class="fin-k">Rasantes</div><div class="fin-v">Inclinación máxima vs deslindes (ej: 60°)</div></div>
+        <div class="fin-row"><div class="fin-k">Uso de suelo</div><div class="fin-v">Residencial, mixto, equipamiento, etc.</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">6. Por qué la constructibilidad importa (aunque el comprador sea primera vivienda)</h3>
+      <p>Imagina una casa de 120 m² en terreno de 300 m² con coeficiente 3,0. Se pueden construir 900 m². <strong>Eso significa que una inmobiliaria puede pagar el valor del terreno como si fueran 900 m² futuros</strong> — muy por encima del valor de la casa habitada.</p>
+      <div class="key-quote">Si tu vendedor tiene casa antigua en zona densificada, <strong>el comprador correcto no es primera vivienda, es un desarrollador</strong>. El precio es 2–4× el de casa habitada.</div>
+      <p>Consulta la ficha del PRC en <code>sii.cl</code> / DOM municipal. Adjunta el certificado de informaciones previas al dossier.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">7. Ficha técnica de la propiedad · lo que adjuntas al aviso</h3>
+      <ul class="checklist">
+        <li>✓ Cap rate bruto y neto estimado (si aplica)</li>
+        <li>✓ Arriendo estimado con rango</li>
+        <li>✓ Payback en años</li>
+        <li>✓ Índice de accesibilidad, colegios cercanos, comercio</li>
+        <li>✓ Plusvalía histórica 5 años del sector</li>
+        <li>✓ Constructibilidad y uso de suelo del terreno</li>
+        <li>✓ Certificado de informaciones previas</li>
+      </ul>
+    </div>
+
+    <div class="quiz-gate" id="quiz-5"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     MÓDULO 6 · FOTOGRAFÍA, VIDEO, GEMINI, SEO
+     ====================================================== -->
+<section class="module" id="mod-6">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Módulo 06 · Marketing</div>
+      <h2 class="sec-h2">Fotografía, video, <span style="color:var(--tealDk)">Gemini AI</span> y SEO en el CRM</h2>
+      <p class="sec-desc">La primera impresión de tu propiedad es una miniatura de 400×300 px en un portal. Si no es hermosa, nadie hace clic. Si no tiene buen título, no aparece. Aquí cambia la ecuación.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">1. Por qué la foto profesional importa</h3>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-num">15×</div><div class="stat-lbl">más visualizaciones vs foto de celular</div></div>
+        <div class="stat-card"><div class="stat-num">3×</div><div class="stat-lbl">más tasa de cierre</div></div>
+        <div class="stat-card"><div class="stat-num">–23%</div><div class="stat-lbl">días en el mercado</div></div>
+        <div class="stat-card"><div class="stat-num">+4,2%</div><div class="stat-lbl">precio final promedio (Redfin 2023)</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">2. Gear mínimo y ajustes</h3>
+      <div class="fin-card">
+        <div class="fin-row"><div class="fin-k">Lente</div><div class="fin-v">Gran angular 16–35 mm full-frame (o 10–22 mm APS-C). NO ojo de pez.</div></div>
+        <div class="fin-row"><div class="fin-k">Trípode</div><div class="fin-v">Obligatorio para HDR y exposiciones largas</div></div>
+        <div class="fin-row"><div class="fin-k">HDR</div><div class="fin-v">3–5 disparos en bracketing para balancear ventanas quemadas e interiores oscuros</div></div>
+        <div class="fin-row"><div class="fin-k">Balance de blancos</div><div class="fin-v">Consistente en todo el tour · 5400 K cálido para living</div></div>
+        <div class="fin-row"><div class="fin-k">Altura cámara</div><div class="fin-v">1,40–1,50 m (altura de pecho, no de ojos)</div></div>
+        <div class="fin-row"><div class="fin-k">Apertura</div><div class="fin-v">f/8 – f/11 para profundidad de campo</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">3. Golden hour, blue hour y staging</h3>
+      <ul class="checklist">
+        <li>✓ <strong>Exterior</strong>: golden hour (30 min después del amanecer / antes del atardecer) o blue hour (cielos cian)</li>
+        <li>✓ <strong>Interior</strong>: luz natural 10:00–15:00, con todas las luces artificiales ENCENDIDAS</li>
+        <li>✓ <strong>Staging</strong>: des-personalizar (no fotos familiares), ordenar, abrir cortinas, flores frescas, toallas dobladas, plato de fruta</li>
+        <li>✓ <strong>Orden de shots</strong>: living → cocina → comedor → dormitorio principal → baños → otros dormitorios → terraza → amenities → fachada</li>
+      </ul>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">4. Video tour + dron</h3>
+      <p>Video de 60–90 s con recorrido en L (entrada → living → cocina → habitaciones → salida). Ritmo cada 4–6 s por escena. Música suave, sin voz. Dron para casas con jardín o amenities.</p>
+      <p><strong>Tour 360°</strong>: dupli ca cierres remotos y ahorra 50% de visitas presenciales fallidas.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">5. Gemini AI como tu copywriter inmobiliario</h3>
+      <p>Gemini (gemini.google.com) + foto de la propiedad + datos técnicos genera títulos SEO y descripciones en segundos. <strong>Pero el prompt lo es todo.</strong></p>
+      <div class="prompt-box">
+        <div class="prompt-title">Prompt maestro · descripción SEO</div>
+        <pre class="prompt-code">Actúa como corredor de propiedades en Chile con 10 años de experiencia.
+Tarea: escribir el título y la descripción SEO de esta propiedad para portales chilenos (Portal Inmobiliario, Yapo, Toctoc).
+
+DATOS:
+- Tipo: [depto / casa]
+- Comuna: [Ñuñoa]
+- Dirección referencial: [Irarrázaval con Simón Bolívar]
+- M² útil / total: [72 / 82]
+- Dormitorios: [2] · Baños: [2]
+- Orientación: [norte]
+- Piso: [12]
+- Estacionamiento / bodega: [1 / 1]
+- Amenities: [piscina, quincho, gimnasio]
+- Cerca de: [metro Chile España 450 m, parque Juan XXIII 200 m]
+- Precio: [UF 4.890]
+- Perfil comprador objetivo: [primera vivienda pareja joven / inversionista]
+
+FORMATO:
+1. Título SEO (máximo 70 caracteres, incluir comuna + dormitorios + diferencial)
+2. 3 bullets destacados (lo que un comprador lee en 5 s)
+3. Descripción larga (180–220 palabras, con subtítulos)
+4. 5 hashtags para redes
+
+Tono: profesional, cálido, preciso. No uses clichés como "oportunidad única" o "no la dejes pasar".</pre>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">6. SEO inmobiliario · qué posiciona en portales</h3>
+      <div class="seo-grid">
+        <div class="seo-card">
+          <h4>Título SEO</h4>
+          <p>Estructura: <code>[Tipo] [dormitorios]D · [Comuna / hito] · [diferencial]</code></p>
+          <p>Ej: <em>"Depto 2D 2B Ñuñoa · Metro Chile España · Norte piso 12"</em></p>
+        </div>
+        <div class="seo-card">
+          <h4>Primer párrafo</h4>
+          <p>Las primeras 160 caracteres son la meta-description. Incluye: <strong>comuna, m², dormitorios, hito cercano, UF.</strong></p>
+        </div>
+        <div class="seo-card">
+          <h4>Palabras clave naturales</h4>
+          <p>Nombre comuna (veces 2–3), "metro X", nombre del parque, nombre del colegio si aplica. Sin spam.</p>
+        </div>
+        <div class="seo-card">
+          <h4>Estructura escaneable</h4>
+          <p>Subtítulos cortos (Ubicación · Distribución · Sector · Financiamiento). Bullets, no murallas de texto.</p>
+        </div>
+        <div class="seo-card">
+          <h4>Datos financieros</h4>
+          <p>Dividendo estimado, cap rate, subsidio aplicable. Aumenta tiempo en página (señal de calidad).</p>
+        </div>
+        <div class="seo-card">
+          <h4>Actualizar cada 14 días</h4>
+          <p>Portales premian frescura. Editar foto de portada o cambio de orden sube el aviso.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">7. Publicar desde el CRM TuMatch</h3>
+      <div class="crm-flow">
+        <div class="crm-step"><div class="crm-step-n">1</div><div class="crm-step-body"><strong>Ficha maestra</strong> en el CRM: todos los datos, fotos, video, documentos, ACM.</div></div>
+        <div class="crm-step"><div class="crm-step-n">2</div><div class="crm-step-body"><strong>Gemini genera</strong> el copy SEO; pegas + editas en la ficha.</div></div>
+        <div class="crm-step"><div class="crm-step-n">3</div><div class="crm-step-body"><strong>Publicación multicanal</strong>: el CRM difunde a portales (PI, Yapo, Toctoc), sitio público TuMatch y redes.</div></div>
+        <div class="crm-step"><div class="crm-step-n">4</div><div class="crm-step-body"><strong>Matching automático</strong>: el CRM cruza la propiedad con leads compradores compatibles y dispara alerta.</div></div>
+        <div class="crm-step"><div class="crm-step-n">5</div><div class="crm-step-body"><strong>Refresh cada 14 días</strong>: cambia portada o primer bullet; eso reposiciona el aviso en portales.</div></div>
+      </div>
+    </div>
+
+    <div class="quiz-gate" id="quiz-6"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     MÓDULO 7 · COMISIONES Y CIERRE
+     ====================================================== -->
+<section class="module" id="mod-7">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Módulo 07 · Cierre</div>
+      <h2 class="sec-h2">Cierre profesional · <span style="color:var(--tealDk)">comisiones corredor + al cliente</span></h2>
+      <p class="sec-desc">La venta se paga al cierre. Saber exactamente qué cobra cada actor — cliente, corredor, TL — y cómo se distribuye, te hace imposible de manipular.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">1. Comisión del cliente vendedor (al corredor)</h3>
+      <div class="fin-card">
+        <div class="fin-row"><div class="fin-k">Tarifa estándar Chile</div><div class="fin-v">2% + IVA del precio de venta</div></div>
+        <div class="fin-row"><div class="fin-k">Mínimo TuMatch</div><div class="fin-v">30 UF + IVA (propiedades bajo UF 1.500)</div></div>
+        <div class="fin-row"><div class="fin-k">Cuándo se cobra</div><div class="fin-v">Al cierre · firma de escritura pública en notaría</div></div>
+        <div class="fin-row"><div class="fin-k">Exclusividad (mandato)</div><div class="fin-v">90 días mínimo · extendible</div></div>
+        <div class="fin-row"><div class="fin-k">Gastos que NO se cobran al cliente</div><div class="fin-v">Fotos, publicaciones, comisión de portales · los absorbe el corredor</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">2. Distribución TuMatch 2026 · lado vendedor</h3>
+      <div class="commission-split">
+        <div class="split-row"><div class="split-k">Referidor externo</div><div class="split-v">5% del lado</div></div>
+        <div class="split-row"><div class="split-k">Captador TuMatch (vendedor)</div><div class="split-v">10% del lado (referido 5% + acuerdo 5%)</div></div>
+        <div class="split-row"><div class="split-k">Corredor freelance junior con TL</div><div class="split-v">hasta 60% del lado</div></div>
+        <div class="split-row"><div class="split-k">Corredor freelance solo</div><div class="split-v">hasta 65% del lado</div></div>
+        <div class="split-row"><div class="split-k">Team Leader</div><div class="split-v">7,5% sobre cada corredor de su equipo + hasta 65% en negocios propios</div></div>
+        <div class="split-row"><div class="split-k">TuMatch (retención)</div><div class="split-v">Remanente tras pagar corredores y TL</div></div>
+      </div>
+      <p style="margin-top:14px;font-style:italic;color:var(--ui-text-soft)">Fuente: Anexo N°2 Referidos y Captación 2026. Aplicable a acuerdos firmados desde 01-ene-2026.</p>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">3. Calculadora de comisión · herramienta CRM</h3>
+      <p>En <code>tumatch-leads.vercel.app/herramientas/calculadora-comision</code> ingresas el precio de cierre y tu rol (captador, gestor, con o sin TL) y obtienes:</p>
+      <ul class="checklist">
+        <li>✓ Comisión bruta cobrada al cliente</li>
+        <li>✓ IVA desglosado</li>
+        <li>✓ Cuánto recibes tú (según tus roles)</li>
+        <li>✓ Cuánto recibe el TL y TuMatch</li>
+        <li>✓ Neto en CLP después de 11,5% de retención</li>
+      </ul>
+      <div class="key-quote">Úsala <strong>antes</strong> de aceptar el mandato. Te dice si el caso vale tu tiempo.</div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">4. Negociar la comisión sin regalarla</h3>
+      <div class="info-grid">
+        <div class="info-card"><div class="info-num">1</div><h4>Ancla con valor, no precio</h4><p>"El 2% se paga solo cuando cierro. Si no vendo, no cobras nada. Mientras, cubro fotos, publicación en 4 portales, matching de leads y negociación."</p></div>
+        <div class="info-card"><div class="info-num">2</div><h4>Descuento a cambio</h4><p>Si pide 1,5%, pide exclusividad 120 días en vez de 90, o dos propiedades bajo el mismo mandato. Nunca regales sin contraparte.</p></div>
+        <div class="info-card"><div class="info-num">3</div><h4>Walk-away</h4><p>Bajar debajo de 1,5% neto al corredor mata el caso. Mejor dejarlo ir que trabajar por bajo costo.</p></div>
+        <div class="info-card"><div class="info-num">4</div><h4>Doble lado</h4><p>Si tomas ambos lados (vendes a comprador que también es tu cliente), puedes bajar 0,25% a cada uno sin afectar tu margen total.</p></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">5. Exclusividad · el mejor regalo para ambos</h3>
+      <div class="two-col">
+        <div class="col-card col-card-soft"><h4>Con exclusividad</h4><ul><li>Plan de marketing completo</li><li>Aviso destacado en portales</li><li>Video + dron + staging</li><li>Matching con toda la red TuMatch</li><li>Reportería quincenal</li><li>Corredor compromete 4–6 h/semana al caso</li></ul></div>
+        <div class="col-card col-card-accent"><h4>Sin exclusividad</h4><ul><li>Aviso básico</li><li>3 fotos</li><li>Competencia con otros 4 corredores → caos de precios y visitas duplicadas</li><li>Propiedad "quemada" en 60 días por sobreexposición</li></ul></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">6. Flujo de cierre · paso a paso</h3>
+      <div class="crm-flow">
+        <div class="crm-step"><div class="crm-step-n">1</div><div class="crm-step-body"><strong>Oferta escrita</strong> del comprador (con vigencia 72 h, monto, forma de pago).</div></div>
+        <div class="crm-step"><div class="crm-step-n">2</div><div class="crm-step-body"><strong>Promesa de compraventa</strong> notarial: plazos, arras/garantía (10%), cláusulas de no regularización o pendientes.</div></div>
+        <div class="crm-step"><div class="crm-step-n">3</div><div class="crm-step-body"><strong>Gestión banco / subsidio</strong> (30–60 días): el comprador ingresa carpeta, tasación bancaria, aprobación.</div></div>
+        <div class="crm-step"><div class="crm-step-n">4</div><div class="crm-step-body"><strong>Estudio de títulos</strong> por abogado: verificar 10 años atrás en CBR.</div></div>
+        <div class="crm-step"><div class="crm-step-n">5</div><div class="crm-step-body"><strong>Escritura pública</strong> en notaría. Firman vendedor, comprador, banco.</div></div>
+        <div class="crm-step"><div class="crm-step-n">6</div><div class="crm-step-body"><strong>Inscripción CBR</strong>. Pagos al vendedor vía vale vista.</div></div>
+        <div class="crm-step"><div class="crm-step-n">7</div><div class="crm-step-body"><strong>Honorarios corredor</strong>: el vendedor paga 2%+IVA contra escritura. TuMatch factura.</div></div>
+        <div class="crm-step"><div class="crm-step-n">8</div><div class="crm-step-body"><strong>Entrega de llaves</strong> y acta: lecturas de medidores, inventario, certificado de no deuda.</div></div>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <h3 class="content-h3">7. Post-venta · cierre real del caso</h3>
+      <ul class="checklist">
+        <li>✓ Agradecimiento por escrito al vendedor</li>
+        <li>✓ Pedir testimonio (con permiso) para tu círculo tibio</li>
+        <li>✓ Pedir referidos ("¿Conoces a alguien pensando en vender o comprar?")</li>
+        <li>✓ Alta en CRM del vendedor como "ex-cliente satisfecho" (touch trimestral)</li>
+        <li>✓ Factura y liquidación en el CRM</li>
+      </ul>
+      <div class="key-quote">Tu mejor captador es un cliente feliz. Un solo vendedor bien atendido genera 2–4 referidos en los siguientes 12 meses.</div>
+    </div>
+
+    <div class="quiz-gate" id="quiz-7"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     PRUEBA FINAL
+     ====================================================== -->
+<section class="module" id="mod-final">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-tag"><span class="dot"></span>Prueba Final</div>
+      <h2 class="sec-h2">Certificación · <span style="color:var(--tealDk)">Cliente Vendedor Avanzado</span></h2>
+      <p class="sec-desc">14 preguntas tomadas de un banco rotativo de 40. Respondes correctamente las 14 para certificarte. Si fallas 5 acumuladas, se bloquea 10 minutos.</p>
+    </div>
+    <div class="quiz-gate" id="quiz-final"></div>
+  </div>
+</section>
+
+<!-- ======================================================
+     CERTIFICADO
+     ====================================================== -->
+<section class="module" id="mod-done">
+  <div class="page">
+    <div id="done-content"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© 2026 TuMatch Inmobiliario SpA · Academia de Corredores</div>
+    <div>Contacto: <a href="https://wa.me/56934107448" target="_blank" rel="noopener">WhatsApp +56 9 3410 7448</a></div>
+  </div>
+</footer>
+
+<script defer src="app.js"></script>
+</body>
+</html>
