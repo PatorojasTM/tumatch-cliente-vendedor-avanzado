@@ -198,3 +198,72 @@
   .page{padding:30px 16px 60px}
   .hero-meta{gap:16px}
 }
+
+/* ============================================================
+   CERTIFICADO MINI · uno por módulo completado
+   Estilo ornamental igual al certificado principal, con timbre teal/gold
+   ============================================================ */
+
+.mini-cert-name-form{max-width:460px;margin:14px auto 20px;display:flex;flex-direction:column;gap:8px}
+.mini-cert-name-form label{font-family:'Cinzel',serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--tealDk);text-align:center}
+[data-theme="dark"] .mini-cert-name-form label{color:#5EEAD4}
+.mini-cert-name-form input{font-family:'DM Sans',sans-serif;font-size:15px;padding:11px 14px;border:1.5px solid var(--ui-border);border-radius:10px;background:var(--ui-bg);color:var(--ui-text);outline:none;text-align:center}
+.mini-cert-name-form input:focus{border-color:var(--tealDk)}
+[data-theme="dark"] .mini-cert-name-form input:focus{border-color:#5EEAD4}
+
+.mini-cert{max-width:640px;margin:16px auto 10px;background:#FAF8F4;color:#0D1B2A;border-radius:12px;box-shadow:0 18px 60px rgba(13,27,42,.18),0 4px 16px rgba(13,27,42,.08);position:relative;overflow:hidden}
+.mini-cert-border{position:relative;padding:30px 36px 28px;border:2.5px double #0D1B2A;border-radius:10px;margin:10px}
+.mini-cert-corner{position:absolute;width:26px;height:26px;border:2.5px solid #D4A017}
+.mini-cert-corner.tl{top:-2px;left:-2px;border-right:none;border-bottom:none}
+.mini-cert-corner.tr{top:-2px;right:-2px;border-left:none;border-bottom:none}
+.mini-cert-corner.bl{bottom:-2px;left:-2px;border-right:none;border-top:none}
+.mini-cert-corner.br{bottom:-2px;right:-2px;border-left:none;border-top:none}
+
+.mini-cert-logo{text-align:center;margin-bottom:10px}
+.mini-cert-logo img{height:54px;width:auto;mix-blend-mode:multiply}
+
+.mini-cert-eyebrow{font-family:'Cinzel',serif;font-size:10px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;color:#D4A017;text-align:center;margin-bottom:10px}
+
+.mini-cert-modpill{display:inline-block;margin:0 auto 16px;background:#047857;color:#FFF;font-family:'Cinzel',serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:20px;text-align:center}
+.mini-cert .mini-cert-modpill{display:block;width:fit-content;margin:0 auto 14px}
+
+.mini-cert-title{font-family:'Cinzel',serif;font-size:22px;font-weight:900;letter-spacing:1px;color:#0D1B2A;text-align:center;line-height:1.25;margin:0 0 12px;padding:0 10px}
+
+.mini-cert-divider{height:1px;background:linear-gradient(90deg,transparent,#D4A017,transparent);margin:12px auto 16px;max-width:220px}
+
+.mini-cert-intro{font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:#4A5968;text-align:center;margin:0 0 8px}
+
+.mini-cert-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;font-weight:700;color:#0D1B2A;text-align:center;margin:4px 0 12px;line-height:1.2;padding:6px 0;border-bottom:1.5px dashed rgba(13,27,42,.18)}
+
+.mini-cert-body{font-family:'EB Garamond',serif;font-size:14px;color:#4A5968;text-align:center;line-height:1.55;margin:12px 0 18px;padding:0 6px}
+.mini-cert-body strong{color:#047857;font-weight:700}
+.mini-cert-body em{color:#0D1B2A;font-weight:600;font-style:italic}
+
+.mini-cert-footer{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:center;margin-top:14px}
+.mini-cert-date{font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:#4A5968}
+.mini-cert-stamp-mini{display:flex;align-items:center;justify-content:center}
+.mini-cert-stamp-mini svg{width:90px;height:90px}
+.mini-cert-signblock{text-align:right}
+.mini-cert-signline{width:100%;height:1px;background:#0D1B2A;margin-bottom:6px}
+.mini-cert-signname{font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4A5968}
+
+@media(max-width:560px){
+  .mini-cert-border{padding:20px 18px 18px;margin:6px}
+  .mini-cert-title{font-size:17px}
+  .mini-cert-name{font-size:24px}
+  .mini-cert-footer{grid-template-columns:1fr;gap:10px;text-align:center}
+  .mini-cert-signblock{text-align:center}
+  .mini-cert-logo img{height:44px}
+}
+
+.mini-cert-actions{display:flex;gap:10px;justify-content:center;margin:22px auto 10px;flex-wrap:wrap}
+
+/* El certificado mantiene colores claros aun en dark theme para buena descarga PNG */
+[data-theme="dark"] .mini-cert{background:#FAF8F4 !important;color:#0D1B2A}
+
+/* Quiz-done ajustes */
+.quiz-done{padding:34px 24px 28px}
+.quiz-done-icon{font-size:48px;color:#047857;text-align:center;margin-bottom:6px}
+[data-theme="dark"] .quiz-done-icon{color:#5EEAD4}
+.quiz-done-title{font-family:'Cinzel',serif;font-size:22px;font-weight:800;color:var(--ui-text);text-align:center;margin-bottom:6px;letter-spacing:.5px}
+.quiz-done-desc{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:var(--ui-text-soft);text-align:center;margin-bottom:10px}

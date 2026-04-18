@@ -548,7 +548,76 @@ const App = (() => {
     const isLast = moduleN === TOTAL_MODULES;
     const nextLabel = isLast ? 'Ir a la Prueba Final →' : 'Ir al Módulo ' + nextN + ' →';
     const nextTarget = isLast ? 8 : nextN;
-    return '<div class="quiz-done"><div class="quiz-done-icon">✓</div><div class="quiz-done-title">¡Módulo completado!</div><div class="quiz-done-desc">Desbloqueaste el siguiente paso.</div><button class="btn btn-primary" onclick="App.goToModule(' + nextTarget + ')">' + nextLabel + '</button></div>';
+    const modName = MODULE_NAMES[moduleN];
+    const fecha = new Date().toLocaleDateString('es-CL', {year:'numeric', month:'long', day:'numeric'});
+    const savedName = localStorage.getItem('tumatch_cert_name_cv_adv') || '';
+    const nameHtml = savedName ? savedName : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre ↓</span>';
+    const modNum = String(moduleN).padStart(2,'0');
+    return (
+      '<div class="quiz-done">' +
+        '<div class="quiz-done-icon">✓</div>' +
+        '<div class="quiz-done-title">¡Módulo ' + modNum + ' aprobado!</div>' +
+        '<div class="quiz-done-desc">Te ganaste un certificado del Módulo ' + modNum + '. Descárgalo y continúa.</div>' +
+
+        '<div class="mini-cert-name-form">' +
+          '<label>Tu nombre para este certificado</label>' +
+          '<input id="miniCertNameInput-' + moduleN + '" type="text" placeholder="Ej. María José Pérez González" value="' + savedName.replace(/"/g,'&quot;') + '" oninput="App.updateMiniCertName(' + moduleN + ', this.value)">' +
+        '</div>' +
+
+        '<div class="mini-cert" id="miniCert-' + moduleN + '">' +
+          '<div class="mini-cert-border">' +
+            '<div class="mini-cert-corner tl"></div><div class="mini-cert-corner tr"></div><div class="mini-cert-corner bl"></div><div class="mini-cert-corner br"></div>' +
+            '<div class="mini-cert-logo"><img src="assets/tumatch_horizontal_positivo.jpg" alt="TuMatch"></div>' +
+            '<div class="mini-cert-eyebrow">Academia de Corredores · Nivel Avanzado</div>' +
+            '<div class="mini-cert-modpill">Módulo ' + modNum + ' · Aprobado 5/5</div>' +
+            '<h3 class="mini-cert-title">' + modName + '</h3>' +
+            '<div class="mini-cert-divider"></div>' +
+            '<p class="mini-cert-intro">Se otorga el presente reconocimiento a</p>' +
+            '<div class="mini-cert-name" id="miniCertName-' + moduleN + '">' + nameHtml + '</div>' +
+            '<p class="mini-cert-body">Por haber completado satisfactoriamente el <strong>Módulo ' + modNum + '</strong> del taller <em>Cliente Vendedor · Avanzado</em> con 5 respuestas correctas (banco rotativo de 20 preguntas).</p>' +
+            '<div class="mini-cert-footer">' +
+              '<div class="mini-cert-date">Santiago, ' + fecha + '</div>' +
+              '<div class="mini-cert-stamp-mini">' +
+                '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">' +
+                  '<circle cx="60" cy="60" r="56" fill="none" stroke="#0D1B2A" stroke-width="2.5"/>' +
+                  '<circle cx="60" cy="60" r="50" fill="none" stroke="#047857" stroke-width="1.5"/>' +
+                  '<circle cx="60" cy="60" r="44" fill="none" stroke="#D4A017" stroke-width="0.6"/>' +
+                  '<text x="60" y="52" font-family="Cinzel, serif" font-size="8" font-weight="800" letter-spacing="1.5" text-anchor="middle" fill="#0D1B2A">MÓDULO</text>' +
+                  '<text x="60" y="73" font-family="Cinzel, serif" font-size="20" font-weight="900" letter-spacing="1.5" text-anchor="middle" fill="#047857">' + modNum + '</text>' +
+                  '<text x="60" y="88" font-family="Cinzel, serif" font-size="6.5" font-weight="700" letter-spacing="1.2" text-anchor="middle" fill="#0D1B2A">APROBADO</text>' +
+                '</svg>' +
+              '</div>' +
+              '<div class="mini-cert-signblock">' +
+                '<div class="mini-cert-signline"></div>' +
+                '<div class="mini-cert-signname">TuMatch Inmobiliario SpA</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="mini-cert-actions">' +
+          '<button class="btn btn-primary" onclick="App.downloadMiniCert(' + moduleN + ')">⬇️ Descargar PNG del módulo</button>' +
+          '<button class="btn btn-ghost" onclick="App.goToModule(' + nextTarget + ')">' + nextLabel + '</button>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function updateMiniCertName(moduleN, v) {
+    try { localStorage.setItem('tumatch_cert_name_cv_adv', v); } catch(e){}
+    const el = document.getElementById('miniCertName-' + moduleN);
+    if (el) el.innerHTML = v && v.trim() ? v : '<span style="color:rgba(13,27,42,.35);font-style:italic">Escribe tu nombre ↓</span>';
+  }
+  function downloadMiniCert(moduleN) {
+    if (typeof html2canvas === 'undefined') { alert('La librería para descargar no está disponible.'); return; }
+    const el = document.getElementById('miniCert-' + moduleN);
+    if (!el) return;
+    html2canvas(el, {scale:2, backgroundColor:'#FAF8F4'}).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'Certificado_TuMatch_CV_Avanzado_Modulo_' + String(moduleN).padStart(2,'0') + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
   }
 
   /* ---------- PRUEBA FINAL ---------- */
@@ -842,6 +911,7 @@ const App = (() => {
     answerQuestion, nextQuestion, retryQuestion, finishQuiz,
     answerFinal, nextFinal, retryFinal, finishFinal,
     toggleTheme, saveCertName, updateCertName, downloadCert, checkLock, checkFinalLock,
+    updateMiniCertName, downloadMiniCert,
   };
 })();
 
