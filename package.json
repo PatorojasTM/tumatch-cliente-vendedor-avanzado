@@ -1,0 +1,13 @@
+{
+  "name": "tumatch-cliente-vendedor-avanzado",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Taller avanzado Cliente Vendedor · Academia de Corredores TuMatch",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
