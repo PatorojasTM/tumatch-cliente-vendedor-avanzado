@@ -265,7 +265,9 @@ const App = (() => {
     _html2canvasPromise = new Promise((resolve, reject) => {
       const s = document.createElement('script');
       s.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+      s.integrity = 'sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H';
       s.crossOrigin = 'anonymous';
+      s.referrerPolicy = 'no-referrer';
       s.onload = () => resolve(window.html2canvas);
       s.onerror = () => { _html2canvasPromise = null; reject(new Error('No se pudo cargar la librería de descarga.')); };
       document.head.appendChild(s);
@@ -392,7 +394,7 @@ const App = (() => {
       }
       if (it.n === 8 && state.unlocked <= TOTAL_MODULES) cls += ' locked';
       if (it.n === 8 && state.finalPassed) cls += ' done';
-      return '<button class="' + cls + '" onclick="App.goToModule(' + it.n + ')"><span class="mod-n">' +
+      return '<button class="' + cls + '" data-action="goToModule" data-args="' + it.n + '"><span class="mod-n">' +
         (it.n===0?'':it.n===8?'★':('0'+it.n).slice(-2)) + '</span>' + it.label + '</button>';
     }).join('');
   }
@@ -443,7 +445,7 @@ const App = (() => {
         '<div class="quiz-locked-icon">🔒</div>' +
         '<div class="quiz-locked-title">Quiz bloqueado temporalmente</div>' +
         '<div class="quiz-locked-desc">Acumulaste ' + MAX_WRONGS + ' errores. Mejor estudia con calma para obtener mejores resultados. Vuelve en <strong id="lock-timer-' + moduleN + '">' + remMin + ' min</strong>.</div>' +
-        '<button class="btn btn-ghost" onclick="App.checkLock(' + moduleN + ')">Reintentar ahora</button>' +
+        '<button class="btn btn-ghost" data-action="checkLock" data-args="' + moduleN + '">Reintentar ahora</button>' +
       '</div>';
     const id = 'lock-timer-' + moduleN;
     const tick = () => {
@@ -485,7 +487,7 @@ const App = (() => {
       return '<div class="' + c + '"></div>';
     }).join('');
     const opts = q.opts.map((opt, i) => (
-      '<button class="quiz-opt" role="radio" aria-checked="false" onclick="App.answerQuestion(' + moduleN + ', ' + i + ')" onkeydown="App.optKeydown(event,' + moduleN + ',' + i + ')" data-i="' + i + '" tabindex="' + (i === 0 ? '0' : '-1') + '">' +
+      '<button class="quiz-opt" role="radio" aria-checked="false" data-action="answerQuestion" data-args="' + moduleN + ',' + i + '" data-keydown="optKeydown" data-i="' + i + '" tabindex="' + (i === 0 ? '0' : '-1') + '">' +
         '<span class="opt-letter" aria-hidden="true">' + String.fromCharCode(65+i) + '</span><span>' + escapeHTML(opt) + '</span>' +
       '</button>'
     )).join('');
@@ -591,8 +593,8 @@ const App = (() => {
     const isLast = qs.index === QUESTIONS_PER_MODULE - 1;
     if (isCorrect) {
       nx.innerHTML = isLast
-        ? '<button class="btn btn-success" onclick="App.finishQuiz(' + moduleN + ')">Finalizar quiz →</button>'
-        : '<button class="btn btn-primary" onclick="App.nextQuestion(' + moduleN + ')">Siguiente pregunta →</button>';
+        ? '<button class="btn btn-success" data-action="finishQuiz" data-args="' + moduleN + '">Finalizar quiz →</button>'
+        : '<button class="btn btn-primary" data-action="nextQuestion" data-args="' + moduleN + '">Siguiente pregunta →</button>';
     } else {
       const pool = quizBank[moduleN];
       const usedQs = new Set(qs.current.map(x => x.q));
@@ -603,7 +605,7 @@ const App = (() => {
       } else {
         qs.current[qs.index] = shuffleOpts(q);
       }
-      nx.innerHTML = '<button class="btn btn-ghost" onclick="App.retryQuestion(' + moduleN + ')">Reintentar con nueva pregunta →</button>';
+      nx.innerHTML = '<button class="btn btn-ghost" data-action="retryQuestion" data-args="' + moduleN + '">Reintentar con nueva pregunta →</button>';
     }
   }
 
@@ -640,7 +642,7 @@ const App = (() => {
 
         '<div class="mini-cert-name-form">' +
           '<label for="miniCertNameInput-' + moduleN + '">Tu nombre para este certificado</label>' +
-          '<input id="miniCertNameInput-' + moduleN + '" type="text" autocomplete="name" placeholder="Ej. María José Pérez González" value="' + escapeHTML(savedName) + '" oninput="App.updateMiniCertName(' + moduleN + ', this.value)">' +
+          '<input id="miniCertNameInput-' + moduleN + '" type="text" autocomplete="name" placeholder="Ej. María José Pérez González" value="' + escapeHTML(savedName) + '" data-input="updateMiniCertName" data-args="' + moduleN + '">' +
         '</div>' +
 
         '<div class="mini-cert" id="miniCert-' + moduleN + '">' +
@@ -675,8 +677,8 @@ const App = (() => {
         '</div>' +
 
         '<div class="mini-cert-actions">' +
-          '<button class="btn btn-primary" onclick="App.downloadMiniCert(' + moduleN + ')">⬇️ Descargar PNG del módulo</button>' +
-          '<button class="btn btn-ghost" onclick="App.goToModule(' + nextTarget + ')">' + nextLabel + '</button>' +
+          '<button class="btn btn-primary" data-action="downloadMiniCert" data-args="' + moduleN + '">⬇️ Descargar PNG del módulo</button>' +
+          '<button class="btn btn-ghost" data-action="goToModule" data-args="' + nextTarget + '">' + nextLabel + '</button>' +
         '</div>' +
       '</div>'
     );
@@ -713,7 +715,7 @@ const App = (() => {
   function mountFinalTest() {
     const container = document.getElementById('quiz-final');
     if (state.finalPassed) {
-      container.innerHTML = '<div class="quiz-done"><div class="quiz-done-icon">🏆</div><div class="quiz-done-title">Prueba final aprobada</div><div class="quiz-done-desc">Puedes volver a descargar tu certificado.</div><button class="btn btn-primary" onclick="App.goToModule(9)">Ver certificado →</button></div>';
+      container.innerHTML = '<div class="quiz-done"><div class="quiz-done-icon" aria-hidden="true">🏆</div><div class="quiz-done-title">Prueba final aprobada</div><div class="quiz-done-desc">Puedes volver a descargar tu certificado.</div><button class="btn btn-primary" data-action="goToModule" data-args="9">Ver certificado →</button></div>';
       return;
     }
     if (isFinalLocked()) { renderFinalLocked(); return; }
@@ -732,7 +734,7 @@ const App = (() => {
         '<div class="quiz-locked-icon">🔒</div>' +
         '<div class="quiz-locked-title">Prueba Final bloqueada temporalmente</div>' +
         '<div class="quiz-locked-desc">Acumulaste ' + MAX_WRONGS_FINAL + ' errores. Mejor estudia con calma para obtener mejores resultados. Vuelve en <strong id="final-lock-timer">' + remMin + ' min</strong>.</div>' +
-        '<button class="btn btn-ghost" onclick="App.checkFinalLock()">Reintentar ahora</button>' +
+        '<button class="btn btn-ghost" data-action="checkFinalLock">Reintentar ahora</button>' +
       '</div>';
     const tick = () => {
       const ms = finalLockRemainingMs();
@@ -765,7 +767,7 @@ const App = (() => {
       return '<div class="' + c + '"></div>';
     }).join('');
     const opts = q.opts.map((opt, i) => (
-      '<button class="quiz-opt" role="radio" aria-checked="false" onclick="App.answerFinal(' + i + ')" onkeydown="App.optKeydown(event,\'final\',' + i + ')" data-i="' + i + '" tabindex="' + (i === 0 ? '0' : '-1') + '"><span class="opt-letter" aria-hidden="true">' + String.fromCharCode(65+i) + '</span><span>' + escapeHTML(opt) + '</span></button>'
+      '<button class="quiz-opt" role="radio" aria-checked="false" data-action="answerFinal" data-args="' + i + '" data-keydown="optKeydown" data-module="final" data-i="' + i + '" tabindex="' + (i === 0 ? '0' : '-1') + '"><span class="opt-letter" aria-hidden="true">' + String.fromCharCode(65+i) + '</span><span>' + escapeHTML(opt) + '</span></button>'
     )).join('');
     container.innerHTML =
       '<div class="quiz-gate-head"><div class="quiz-icon" aria-hidden="true">🏆</div><div><div class="quiz-title">Prueba Final · Cliente Vendedor Avanzado</div>' +
@@ -821,14 +823,14 @@ const App = (() => {
     const isLast = qs.index === FINAL_QUESTIONS - 1;
     if (isCorrect) {
       nx.innerHTML = isLast
-        ? '<button class="btn btn-success" onclick="App.finishFinal()">Finalizar prueba →</button>'
-        : '<button class="btn btn-primary" onclick="App.nextFinal()">Siguiente pregunta →</button>';
+        ? '<button class="btn btn-success" data-action="finishFinal">Finalizar prueba →</button>'
+        : '<button class="btn btn-primary" data-action="nextFinal">Siguiente pregunta →</button>';
     } else {
       const usedQs = new Set(qs.current.map(x => x.q));
       const candidates = finalBank.filter(p => !usedQs.has(p.q));
       if (candidates.length) qs.current[qs.index] = shuffleOpts(candidates[Math.floor(Math.random()*candidates.length)]);
       else qs.current[qs.index] = shuffleOpts(q);
-      nx.innerHTML = '<button class="btn btn-ghost" onclick="App.retryFinal()">Reintentar con nueva pregunta →</button>';
+      nx.innerHTML = '<button class="btn btn-ghost" data-action="retryFinal">Reintentar con nueva pregunta →</button>';
     }
   }
 
@@ -864,7 +866,7 @@ const App = (() => {
 
       '<div class="cert-name-form" style="max-width:520px;margin:0 auto 24px;background:var(--ui-surface);border:1.5px solid var(--ui-border);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:10px">' +
         '<label style="font-family:\'Cinzel\',serif;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--tealDk)">Tu nombre para el certificado</label>' +
-        '<input id="certNameInput" type="text" autocomplete="name" placeholder="Ej. María José Pérez González" value="' + escapeHTML(savedName) + '" oninput="App.updateCertName(this.value)" style="font-family:\'DM Sans\',sans-serif;font-size:16px;padding:12px 14px;border:1.5px solid var(--ui-border);border-radius:10px;color:var(--ui-text);background:var(--ui-bg);outline:none;transition:border-color .15s">' +
+        '<input id="certNameInput" type="text" autocomplete="name" placeholder="Ej. María José Pérez González" value="' + escapeHTML(savedName) + '" data-input="updateCertName" style="font-family:\'DM Sans\',sans-serif;font-size:16px;padding:12px 14px;border:1.5px solid var(--ui-border);border-radius:10px;color:var(--ui-text);background:var(--ui-bg);outline:none;transition:border-color .15s">' +
       '</div>' +
 
       '<div class="tm-cert" id="cert">' +
@@ -919,9 +921,9 @@ const App = (() => {
       '</div>' +
 
       '<div class="tm-cert-actions">' +
-        '<button class="btn btn-primary" onclick="App.downloadCert()">⬇️ Descargar PNG</button>' +
-        '<button class="btn btn-ghost" onclick="window.print()">🖨️ Imprimir</button>' +
-        '<button class="btn btn-ghost" onclick="App.restart()">↻ Reiniciar taller</button>' +
+        '<button class="btn btn-primary" data-action="downloadCert">⬇️ Descargar PNG</button>' +
+        '<button class="btn btn-ghost" data-action="print">🖨️ Imprimir</button>' +
+        '<button class="btn btn-ghost" data-action="restart">↻ Reiniciar taller</button>' +
       '</div>' +
       '<div style="text-align:center;margin:40px 0 20px">' +
         '<div style="font-family:\'Cinzel\',serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--tealDk);margin-bottom:16px;font-weight:800">Paso final · Activa tu perfil avanzado</div>' +
@@ -991,6 +993,54 @@ const App = (() => {
     if (bEl) bEl.onclick = () => goToModule(nextN);
   }
 
+  /* ---------- EVENT DELEGATION (CSP-safe, zero inline handlers) ---------- */
+  function parseArgs(raw) {
+    if (!raw) return [];
+    return String(raw).split(',').map(s => {
+      const t = s.trim();
+      if (t === '') return '';
+      const n = Number(t);
+      return (Number.isFinite(n) && /^-?\d+(\.\d+)?$/.test(t)) ? n : t;
+    });
+  }
+  function dispatchAction(name, args, event) {
+    if (name === 'print') { window.print(); return; }
+    const fn = App[name];
+    if (typeof fn !== 'function') return;
+    return fn.apply(null, event === 'input' ? [...args] : args);
+  }
+  function installDelegation() {
+    document.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-action]');
+      if (!t) return;
+      if (t.tagName === 'A') e.preventDefault();
+      const fn = t.dataset.action;
+      const args = parseArgs(t.dataset.args);
+      dispatchAction(fn, args, 'click');
+    });
+    document.addEventListener('keydown', (e) => {
+      const t = e.target.closest('[data-keydown]');
+      if (!t) return;
+      const fn = t.dataset.keydown;
+      if (fn !== 'optKeydown') return;
+      const args = parseArgs(t.dataset.args);
+      // Legacy path: if data-args absent, try data-module + data-i
+      if (!args.length && t.dataset.module != null && t.dataset.i != null) {
+        const m = t.dataset.module;
+        const mVal = m === 'final' ? 'final' : Number(m);
+        args.push(mVal, Number(t.dataset.i));
+      }
+      optKeydown(e, args[0], args[1]);
+    });
+    document.addEventListener('input', (e) => {
+      const t = e.target.closest('[data-input]');
+      if (!t) return;
+      const fn = t.dataset.input;
+      const args = parseArgs(t.dataset.args);
+      if (typeof App[fn] === 'function') App[fn](...args, t.value);
+    });
+  }
+
   function init() {
     load();
     try {
@@ -998,6 +1048,7 @@ const App = (() => {
       if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
     } catch(e) {}
     renderNav(); updateProgress(); updateResumeBanner(); updateLogoForTheme();
+    installDelegation();
     const t = document.getElementById('themeToggle');
     if (t) t.addEventListener('click', toggleTheme);
   }
